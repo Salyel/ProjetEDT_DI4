@@ -1,0 +1,76 @@
+﻿  Instance.cpp
+d:\programmes visual\projetedt_di4\projetedt_di4\instance.hpp(54): warning C4290: Spécification d'exception C++ ignorée sauf pour indiquer qu'une fonction n'est pas __declspec(nothrow)
+d:\programmes visual\projetedt_di4\projetedt_di4\instance.hpp(61): warning C4290: Spécification d'exception C++ ignorée sauf pour indiquer qu'une fonction n'est pas __declspec(nothrow)
+d:\programmes visual\projetedt_di4\projetedt_di4\instance.hpp(62): warning C4290: Spécification d'exception C++ ignorée sauf pour indiquer qu'une fonction n'est pas __declspec(nothrow)
+d:\programmes visual\projetedt_di4\projetedt_di4\instance.hpp(63): warning C4290: Spécification d'exception C++ ignorée sauf pour indiquer qu'une fonction n'est pas __declspec(nothrow)
+d:\programmes visual\projetedt_di4\projetedt_di4\instance.hpp(64): warning C4290: Spécification d'exception C++ ignorée sauf pour indiquer qu'une fonction n'est pas __declspec(nothrow)
+d:\programmes visual\projetedt_di4\projetedt_di4\instance.hpp(65): warning C4290: Spécification d'exception C++ ignorée sauf pour indiquer qu'une fonction n'est pas __declspec(nothrow)
+d:\programmes visual\projetedt_di4\projetedt_di4\instance.hpp(66): warning C4290: Spécification d'exception C++ ignorée sauf pour indiquer qu'une fonction n'est pas __declspec(nothrow)
+d:\programmes visual\projetedt_di4\projetedt_di4\instance.hpp(67): warning C4290: Spécification d'exception C++ ignorée sauf pour indiquer qu'une fonction n'est pas __declspec(nothrow)
+d:\programmes visual\projetedt_di4\projetedt_di4\instance.hpp(68): warning C4290: Spécification d'exception C++ ignorée sauf pour indiquer qu'une fonction n'est pas __declspec(nothrow)
+d:\programmes visual\projetedt_di4\projetedt_di4\instance.hpp(69): warning C4290: Spécification d'exception C++ ignorée sauf pour indiquer qu'une fonction n'est pas __declspec(nothrow)
+d:\programmes visual\projetedt_di4\projetedt_di4\instance.hpp(70): warning C4290: Spécification d'exception C++ ignorée sauf pour indiquer qu'une fonction n'est pas __declspec(nothrow)
+d:\programmes visual\projetedt_di4\projetedt_di4\instance.hpp(71): warning C4290: Spécification d'exception C++ ignorée sauf pour indiquer qu'une fonction n'est pas __declspec(nothrow)
+d:\programmes visual\projetedt_di4\projetedt_di4\instance.hpp(72): warning C4290: Spécification d'exception C++ ignorée sauf pour indiquer qu'une fonction n'est pas __declspec(nothrow)
+d:\programmes visual\projetedt_di4\projetedt_di4\instance.hpp(73): warning C4290: Spécification d'exception C++ ignorée sauf pour indiquer qu'une fonction n'est pas __declspec(nothrow)
+d:\programmes visual\projetedt_di4\projetedt_di4\instance.hpp(74): warning C4290: Spécification d'exception C++ ignorée sauf pour indiquer qu'une fonction n'est pas __declspec(nothrow)
+d:\programmes visual\projetedt_di4\projetedt_di4\instance.hpp(75): warning C4290: Spécification d'exception C++ ignorée sauf pour indiquer qu'une fonction n'est pas __declspec(nothrow)
+d:\programmes visual\projetedt_di4\projetedt_di4\instance.hpp(78): warning C4290: Spécification d'exception C++ ignorée sauf pour indiquer qu'une fonction n'est pas __declspec(nothrow)
+d:\programmes visual\projetedt_di4\projetedt_di4\instance.hpp(79): warning C4290: Spécification d'exception C++ ignorée sauf pour indiquer qu'une fonction n'est pas __declspec(nothrow)
+d:\programmes visual\projetedt_di4\projetedt_di4\instance.cpp(11): warning C4290: Spécification d'exception C++ ignorée sauf pour indiquer qu'une fonction n'est pas __declspec(nothrow)
+d:\programmes visual\projetedt_di4\projetedt_di4\instance.cpp(122): error C2660: 'remove' : la fonction ne prend pas 3 arguments
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\stdio.h(364): note: voir la déclaration de 'remove'
+d:\programmes visual\projetedt_di4\projetedt_di4\instance.cpp(200): error C2660: 'remove' : la fonction ne prend pas 3 arguments
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\stdio.h(364): note: voir la déclaration de 'remove'
+d:\programmes visual\projetedt_di4\projetedt_di4\instance.cpp(220): error C2660: 'remove' : la fonction ne prend pas 3 arguments
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\stdio.h(364): note: voir la déclaration de 'remove'
+d:\programmes visual\projetedt_di4\projetedt_di4\instance.cpp(264): error C2660: 'remove' : la fonction ne prend pas 3 arguments
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\stdio.h(364): note: voir la déclaration de 'remove'
+d:\programmes visual\projetedt_di4\projetedt_di4\instance.cpp(276): warning C4018: '<' : incompatibilité signed/unsigned
+d:\programmes visual\projetedt_di4\projetedt_di4\instance.cpp(311): error C2660: 'remove' : la fonction ne prend pas 3 arguments
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\stdio.h(364): note: voir la déclaration de 'remove'
+d:\programmes visual\projetedt_di4\projetedt_di4\instance.cpp(366): error C2660: 'remove' : la fonction ne prend pas 3 arguments
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\stdio.h(364): note: voir la déclaration de 'remove'
+d:\programmes visual\projetedt_di4\projetedt_di4\instance.cpp(423): error C2660: 'remove' : la fonction ne prend pas 3 arguments
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\stdio.h(364): note: voir la déclaration de 'remove'
+d:\programmes visual\projetedt_di4\projetedt_di4\instance.cpp(475): warning C4018: '<' : incompatibilité signed/unsigned
+d:\programmes visual\projetedt_di4\projetedt_di4\instance.cpp(477): warning C4018: '<' : incompatibilité signed/unsigned
+d:\programmes visual\projetedt_di4\projetedt_di4\instance.cpp(529): warning C4290: Spécification d'exception C++ ignorée sauf pour indiquer qu'une fonction n'est pas __declspec(nothrow)
+d:\programmes visual\projetedt_di4\projetedt_di4\instance.cpp(541): warning C4290: Spécification d'exception C++ ignorée sauf pour indiquer qu'une fonction n'est pas __declspec(nothrow)
+d:\programmes visual\projetedt_di4\projetedt_di4\instance.cpp(553): warning C4290: Spécification d'exception C++ ignorée sauf pour indiquer qu'une fonction n'est pas __declspec(nothrow)
+d:\programmes visual\projetedt_di4\projetedt_di4\instance.cpp(565): warning C4290: Spécification d'exception C++ ignorée sauf pour indiquer qu'une fonction n'est pas __declspec(nothrow)
+d:\programmes visual\projetedt_di4\projetedt_di4\instance.cpp(577): warning C4290: Spécification d'exception C++ ignorée sauf pour indiquer qu'une fonction n'est pas __declspec(nothrow)
+d:\programmes visual\projetedt_di4\projetedt_di4\instance.cpp(589): warning C4290: Spécification d'exception C++ ignorée sauf pour indiquer qu'une fonction n'est pas __declspec(nothrow)
+d:\programmes visual\projetedt_di4\projetedt_di4\instance.cpp(601): warning C4290: Spécification d'exception C++ ignorée sauf pour indiquer qu'une fonction n'est pas __declspec(nothrow)
+d:\programmes visual\projetedt_di4\projetedt_di4\instance.cpp(613): warning C4290: Spécification d'exception C++ ignorée sauf pour indiquer qu'une fonction n'est pas __declspec(nothrow)
+d:\programmes visual\projetedt_di4\projetedt_di4\instance.cpp(625): warning C4290: Spécification d'exception C++ ignorée sauf pour indiquer qu'une fonction n'est pas __declspec(nothrow)
+d:\programmes visual\projetedt_di4\projetedt_di4\instance.cpp(645): warning C4290: Spécification d'exception C++ ignorée sauf pour indiquer qu'une fonction n'est pas __declspec(nothrow)
+d:\programmes visual\projetedt_di4\projetedt_di4\instance.cpp(657): warning C4290: Spécification d'exception C++ ignorée sauf pour indiquer qu'une fonction n'est pas __declspec(nothrow)
+d:\programmes visual\projetedt_di4\projetedt_di4\instance.cpp(685): warning C4290: Spécification d'exception C++ ignorée sauf pour indiquer qu'une fonction n'est pas __declspec(nothrow)
+d:\programmes visual\projetedt_di4\projetedt_di4\instance.cpp(713): warning C4290: Spécification d'exception C++ ignorée sauf pour indiquer qu'une fonction n'est pas __declspec(nothrow)
+d:\programmes visual\projetedt_di4\projetedt_di4\instance.cpp(733): warning C4290: Spécification d'exception C++ ignorée sauf pour indiquer qu'une fonction n'est pas __declspec(nothrow)
+d:\programmes visual\projetedt_di4\projetedt_di4\instance.cpp(753): warning C4290: Spécification d'exception C++ ignorée sauf pour indiquer qu'une fonction n'est pas __declspec(nothrow)
+d:\programmes visual\projetedt_di4\projetedt_di4\instance.cpp(773): warning C4290: Spécification d'exception C++ ignorée sauf pour indiquer qu'une fonction n'est pas __declspec(nothrow)
+d:\programmes visual\projetedt_di4\projetedt_di4\instance.cpp(781): warning C4018: '<' : incompatibilité signed/unsigned
+d:\programmes visual\projetedt_di4\projetedt_di4\instance.cpp(798): warning C4290: Spécification d'exception C++ ignorée sauf pour indiquer qu'une fonction n'est pas __declspec(nothrow)
+d:\programmes visual\projetedt_di4\projetedt_di4\instance.cpp(806): warning C4018: '<' : incompatibilité signed/unsigned
+  main.cpp
+d:\programmes visual\projetedt_di4\projetedt_di4\instance.hpp(54): warning C4290: Spécification d'exception C++ ignorée sauf pour indiquer qu'une fonction n'est pas __declspec(nothrow)
+d:\programmes visual\projetedt_di4\projetedt_di4\instance.hpp(61): warning C4290: Spécification d'exception C++ ignorée sauf pour indiquer qu'une fonction n'est pas __declspec(nothrow)
+d:\programmes visual\projetedt_di4\projetedt_di4\instance.hpp(62): warning C4290: Spécification d'exception C++ ignorée sauf pour indiquer qu'une fonction n'est pas __declspec(nothrow)
+d:\programmes visual\projetedt_di4\projetedt_di4\instance.hpp(63): warning C4290: Spécification d'exception C++ ignorée sauf pour indiquer qu'une fonction n'est pas __declspec(nothrow)
+d:\programmes visual\projetedt_di4\projetedt_di4\instance.hpp(64): warning C4290: Spécification d'exception C++ ignorée sauf pour indiquer qu'une fonction n'est pas __declspec(nothrow)
+d:\programmes visual\projetedt_di4\projetedt_di4\instance.hpp(65): warning C4290: Spécification d'exception C++ ignorée sauf pour indiquer qu'une fonction n'est pas __declspec(nothrow)
+d:\programmes visual\projetedt_di4\projetedt_di4\instance.hpp(66): warning C4290: Spécification d'exception C++ ignorée sauf pour indiquer qu'une fonction n'est pas __declspec(nothrow)
+d:\programmes visual\projetedt_di4\projetedt_di4\instance.hpp(67): warning C4290: Spécification d'exception C++ ignorée sauf pour indiquer qu'une fonction n'est pas __declspec(nothrow)
+d:\programmes visual\projetedt_di4\projetedt_di4\instance.hpp(68): warning C4290: Spécification d'exception C++ ignorée sauf pour indiquer qu'une fonction n'est pas __declspec(nothrow)
+d:\programmes visual\projetedt_di4\projetedt_di4\instance.hpp(69): warning C4290: Spécification d'exception C++ ignorée sauf pour indiquer qu'une fonction n'est pas __declspec(nothrow)
+d:\programmes visual\projetedt_di4\projetedt_di4\instance.hpp(70): warning C4290: Spécification d'exception C++ ignorée sauf pour indiquer qu'une fonction n'est pas __declspec(nothrow)
+d:\programmes visual\projetedt_di4\projetedt_di4\instance.hpp(71): warning C4290: Spécification d'exception C++ ignorée sauf pour indiquer qu'une fonction n'est pas __declspec(nothrow)
+d:\programmes visual\projetedt_di4\projetedt_di4\instance.hpp(72): warning C4290: Spécification d'exception C++ ignorée sauf pour indiquer qu'une fonction n'est pas __declspec(nothrow)
+d:\programmes visual\projetedt_di4\projetedt_di4\instance.hpp(73): warning C4290: Spécification d'exception C++ ignorée sauf pour indiquer qu'une fonction n'est pas __declspec(nothrow)
+d:\programmes visual\projetedt_di4\projetedt_di4\instance.hpp(74): warning C4290: Spécification d'exception C++ ignorée sauf pour indiquer qu'une fonction n'est pas __declspec(nothrow)
+d:\programmes visual\projetedt_di4\projetedt_di4\instance.hpp(75): warning C4290: Spécification d'exception C++ ignorée sauf pour indiquer qu'une fonction n'est pas __declspec(nothrow)
+d:\programmes visual\projetedt_di4\projetedt_di4\instance.hpp(78): warning C4290: Spécification d'exception C++ ignorée sauf pour indiquer qu'une fonction n'est pas __declspec(nothrow)
+d:\programmes visual\projetedt_di4\projetedt_di4\instance.hpp(79): warning C4290: Spécification d'exception C++ ignorée sauf pour indiquer qu'une fonction n'est pas __declspec(nothrow)
+  Génération de code en cours...
