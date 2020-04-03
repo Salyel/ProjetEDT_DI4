@@ -1,9 +1,12 @@
 #ifndef Instance_hpp
 #define Instance_hpp
+#pragma warning( disable : 4290 )
 
 #include <stdio.h>
 #include <string>
 #include <vector>
+#include <algorithm>
+#include "pch.h"
 
 using namespace std;
 
