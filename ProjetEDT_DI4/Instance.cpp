@@ -615,6 +615,7 @@ int Instance::get_Personne_Nbre_WE_Max(int i_Id_Personne) throw(string)
     if(v_Personne.size()==0)
         return 0;
     if((i_Id_Personne>=0)&&(i_Id_Personne<i_Nombre_Personne))
+        
         return v_Personne[i_Id_Personne].i_Nbre_WE_Max;
     else
     {

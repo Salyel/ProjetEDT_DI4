@@ -95,10 +95,15 @@ bool Solution::Verification_Solution(Instance *instance)
             }
         }
         //Vérification de la durée totale maximale et minimale de chaque personne
-        if((i_duree_travail>instance->get_Personne_Duree_total_Max(i))||(i_duree_travail<instance->get_Personne_Duree_total_Min(i)))
+        if (i_duree_travail > instance->get_Personne_Duree_total_Max(i))
         {
-            cout<< "Erreur : La durée totale de travail de la personne "<< i<<" ne respect pas sa valeur max ou min." <<endl;
-            b_solution_ok=false;
+            cout << "Erreur : La durée totale de travail de la personne " << i << " ne respect pas sa valeur max" << endl;
+            b_solution_ok = false;
+        }
+        if (i_duree_travail < instance->get_Personne_Duree_total_Min(i))
+        {
+            cout << "Erreur : La durée totale de travail de la personne " << i << " ne respect pas sa valeur min" << endl;
+            b_solution_ok = false;
         }
         //Vérification du nombre de WE (samedi ou/et dimanche) de travail maximal pour chaque personne
         if(i_nb_WE>instance->get_Personne_Nbre_WE_Max(i))
