@@ -22,6 +22,12 @@ Solution* Heuristique::unnamed_heuristique(Instance* instance)
 		int nb_Shift_Consecutive = 0, weekend_travail = 0, nb_Conge_Restant = 0;
 		vector<int> nb_Shift_Par_Type = vector<int>(instance->get_Nombre_Shift(), 0);
 
+		/**
+		*
+		* Ici ce serait cool de voir quels jours il peut travailler sans ruiner les 5 jours d'affilé avec ses congés
+		*
+		*/
+
 		//on parcourt les journees une a une
 		int j = 0;
 		//tant qu'il n'a pas son temps de travail minimum
@@ -85,7 +91,7 @@ Solution* Heuristique::unnamed_heuristique(Instance* instance)
 				if (!shift_Affectee)
 				{
 
-					int id_Meilleure_Shift = 0, valeur_Meilleure;
+					int id_Meilleure_Shift = 0, valeur_Meilleure; //inutiles pour l'instant, on ne s'en sert pas!
 					id_Shift = 0;
 					valeur_Shift = 0;
 

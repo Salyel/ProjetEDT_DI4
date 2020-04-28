@@ -1,5 +1,5 @@
-//#define CHEMIN_DOSSIER_DONNEES "D:/Programmes Visual/ProjetEDT_DI4/Format Etudiant Public/"
-#define CHEMIN_DOSSIER_DONNEES "C:/Users/Florent/Documents/Cours/S8/Optimisation Discrete/ProjetEDT_DI4/Format Etudiant Public/"
+#define CHEMIN_DOSSIER_DONNEES "D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/"
+//#define CHEMIN_DOSSIER_DONNEES "C:/Users/Florent/Documents/Cours/S8/Optimisation Discrete/ProjetEDT_DI4/Format Etudiant Public/"
 #define NOM_FICHIER_LISTE_FICHIER_DONNEES "data.txt"
 #define NOM_FICHIER_LISTE_SORTIE "sortie.txt"
 
@@ -17,6 +17,62 @@ int Resolution(Instance * instance);
 
 int main(int argc, const char * argv[])
 {
+    //Bloc de commentaire pour tester des trucs sur les solutions
+    /*
+    Solution test;
+    Solution test2;
+
+    vector<vector<int>> nombrax;
+    vector<int> inte_nombrax;
+    inte_nombrax.push_back(1);
+    inte_nombrax.push_back(-1);
+    inte_nombrax.push_back(1);
+    inte_nombrax.push_back(1);
+    nombrax.push_back(inte_nombrax);
+
+    test.v_v_IdShift_Par_Personne_et_Jour = nombrax;
+    test.i_valeur_fonction_objectif = 5;
+
+    test2 = test;
+
+    for (int i = 0; i < 1; i++) {
+        for (int j = 0; j < 4; j++) {
+            cout << test.v_v_IdShift_Par_Personne_et_Jour[i][j];
+        }
+        cout << "\n";
+    }
+    for (int i = 0; i < 1; i++) {
+        for (int j = 0; j < 4; j++) {
+            cout << test2.v_v_IdShift_Par_Personne_et_Jour[i][j];
+        }
+        cout << "\n";
+    }
+
+    test.v_v_IdShift_Par_Personne_et_Jour[0].pop_back();
+
+    for (int i = 0; i < 1; i++) {
+        for (int j = 0; j < test.v_v_IdShift_Par_Personne_et_Jour[0].size(); j++) {
+            cout << test.v_v_IdShift_Par_Personne_et_Jour[i][j];
+        }
+        cout << "\n";
+    }
+    for (int i = 0; i < 1; i++) {
+        for (int j = 0; j < test2.v_v_IdShift_Par_Personne_et_Jour[0].size(); j++) {
+            cout << test2.v_v_IdShift_Par_Personne_et_Jour[i][j];
+        }
+        cout << "\n";
+    }
+
+    test.~Solution();
+
+    for (int i = 0; i < 1; i++) {
+        for (int j = 0; j < test2.v_v_IdShift_Par_Personne_et_Jour[0].size(); j++) {
+            cout << test2.v_v_IdShift_Par_Personne_et_Jour[i][j];
+        }
+        cout << "\n";
+    }
+    */
+    
     try
     {
         string s_tmp;
@@ -77,6 +133,7 @@ int main(int argc, const char * argv[])
         cout << err <<endl;
     }
     return 0;
+    
 }
 
 int Resolution(Instance * instance)

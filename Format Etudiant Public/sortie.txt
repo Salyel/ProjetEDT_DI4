@@ -63,3 +63,9 @@ C:/Users/Florent/Documents/Cours/S8/Optimisation Discrete/ProjetEDT_DI4/Format E
 C:/Users/Florent/Documents/Cours/S8/Optimisation Discrete/ProjetEDT_DI4/Format Etudiant Public/Inst1.txt	0.0187051	0
  Fichier données	 Tps de résolution 	 Best solution
 C:/Users/Florent/Documents/Cours/S8/Optimisation Discrete/ProjetEDT_DI4/Format Etudiant Public/Inst1.txt	0.0157913	0
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst1.txt	0.012378	0
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst1.txt	0.0125745	0
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst1.txt	0.01577	0

@@ -47,7 +47,7 @@ bool Solution::Verification_Solution(Instance *instance)
                 if(v_v_IdShift_Par_Personne_et_Jour[i][j]!=-1)
                 {
                     v_i_Nb_shift[v_v_IdShift_Par_Personne_et_Jour[i][j]]=v_i_Nb_shift[v_v_IdShift_Par_Personne_et_Jour[i][j]]+1;
-                v_i_nb_personne_par_Shift_et_jour[v_v_IdShift_Par_Personne_et_Jour[i][j]][j]=v_i_nb_personne_par_Shift_et_jour[v_v_IdShift_Par_Personne_et_Jour[i][j]][j]+1;
+                    v_i_nb_personne_par_Shift_et_jour[v_v_IdShift_Par_Personne_et_Jour[i][j]][j]=v_i_nb_personne_par_Shift_et_jour[v_v_IdShift_Par_Personne_et_Jour[i][j]][j]+1;
                     i_duree_travail=i_duree_travail+instance->get_Shift_Duree(v_v_IdShift_Par_Personne_et_Jour[i][j]);
                     i_shift_consecutif++;
                     if((j%7)==5)
