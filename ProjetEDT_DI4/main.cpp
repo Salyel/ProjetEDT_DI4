@@ -7,6 +7,7 @@
 #include <fstream>
 #include <chrono>
 #include <algorithm>
+#include <set>
 #include "Instance.hpp"
 #include "Solution.hpp"
 #include "Heuristique.h"
@@ -72,7 +73,8 @@ int main(int argc, const char * argv[])
         cout << "\n";
     }
     */
-    
+
+    /*
     try
     {
         string s_tmp;
@@ -133,7 +135,7 @@ int main(int argc, const char * argv[])
         cout << err <<endl;
     }
     return 0;
-    
+    */
 }
 
 int Resolution(Instance * instance)
