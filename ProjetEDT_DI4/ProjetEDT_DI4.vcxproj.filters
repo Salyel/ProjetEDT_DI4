@@ -24,7 +24,7 @@
     <ClInclude Include="Solution.hpp">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="Heuristique.h">
+    <ClInclude Include="Heuristique.hpp">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>

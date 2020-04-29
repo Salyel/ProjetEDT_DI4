@@ -151,7 +151,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Heuristique.h" />
+    <ClInclude Include="Heuristique.hpp" />
     <ClInclude Include="Instance.hpp" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Solution.hpp" />
