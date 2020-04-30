@@ -28,7 +28,6 @@ class RechercheTabou
 		bool presenceMouvement(vector<int> mouvement);
 		int valeurVoisin(Solution voisin);
 		bool validiteVoisin(Solution voisin, int numero_employe);
-		//void initialisation();
 
 		void setInstance(Instance* instance);
 		void setSolutionInitiale(Solution* solution);
