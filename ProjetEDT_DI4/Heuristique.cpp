@@ -18,186 +18,116 @@ Solution* Heuristique::resolution_Instance()
 {
 	Solution* s = new Solution();
 
-	int nb_personne = instance->get_Nombre_Personne();
-	for (int i = 0; i < nb_personne; i++)
-	{
-		cout << i + 1 << "\n";
-		jours_Travailles_Par_Personne(i);
-	}
-
-	/*
-
-	//toutes les valeurs de la matrice sont initialisées à -1, donc comme des congés
-	s->v_v_IdShift_Par_Personne_et_Jour = vector<vector<int>>(instance->get_Nombre_Personne(), vector<int>(instance->get_Nombre_Jour(), -1));
-	vector<vector<int>> nb_Personne_Par_Jour_Et_Shift = vector<vector<int>>(instance->get_Nombre_Jour(), vector<int>(instance->get_Nombre_Shift(), 0));
-
+	//récupération de données de l'instance
 	int i_Nb_Employe = instance->get_Nombre_Personne();
 	int i_Nb_Jour = instance->get_Nombre_Jour();
 	int i_Nb_Shift = instance->get_Nombre_Shift();
 
-	//pour chaque employé
+	//initialisation du vecteur de solution et d'un vecteur représentant le nombre de personnes actuellement affectées à chaque shift
+	s->v_v_IdShift_Par_Personne_et_Jour = vector<vector<int>>(i_Nb_Employe, vector<int>());
+	vector<vector<int>> nb_Personne_Par_Jour_Par_Shift = vector<vector<int>>(i_Nb_Jour, vector<int>(i_Nb_Shift, 0));
+
+
 	for (int e = 0; e < i_Nb_Employe; e++)
 	{
-		int duree_Totale_Min = instance->get_Personne_Duree_total_Min(e), duree_Totale_Max = instance->get_Personne_Duree_total_Max(e), duree_Actuelle = 0;
-		int nb_Shift_Consecutive = 0, weekend_travail = 0, nb_Conge_Restant = 0;
-		vector<int> nb_Shift_Par_Type = vector<int>(instance->get_Nombre_Shift(), 0);
+		//on commence par determiner quels jours sont travailles et quels jours sont des conges
+		vector<int> v_Horizon_Employe = Heuristique::jours_Travailles_Par_Personne(e);
 
-		//on parcourt les journees une a une
-		int j = 0;
-		//tant qu'il n'a pas son temps de travail minimum
-		while (duree_Actuelle < duree_Totale_Min && j < i_Nb_Jour)
+		//puis on determine quelle est la meilleure shift a mettre pour chaque jour travailler
+
+		int duree_Travail_Min = instance->get_Personne_Duree_total_Min(e), duree_Travail_Max = instance->get_Personne_Duree_total_Max(e), duree_Travail_Actuelle = 0;
+		vector<int> nb_Shift_Par_Type = vector<int>(i_Nb_Shift, 0);
+
+		//pour chaque jour de l'horizon
+		for (int j = 0; j < i_Nb_Jour; j++)
 		{
-			//si l'employe ne depasse son nombre de jour de travail max d'affilee 
-			//si il n'a pas de jour de conge reserve ou n'a pas ete mis en conge
-			//si il ne depasse pas son nombre de WE de travail max
-			if (nb_Shift_Consecutive + 1 <= instance->get_Personne_Nbre_Shift_Consecutif_Max(e)
-				&& instance->is_Available_Personne_Jour(e,j) && nb_Conge_Restant == 0
-				&& (j % 7 < 5 || weekend_travail + 1 <= instance->get_Personne_Nbre_WE_Max(e)))
-			{
-				//cela veut dire qu'il peut travailler sur cette journee
+			//si on a pas etabli que le jour serait un jour de repos
+			if(v_Horizon_Employe[j] != -1) {
 
-				//represente si on a deja affecte une shift pour cette journee
-				bool shift_Affectee = false;
-
-				int id_Shift = 0, valeur_Shift = 0;
-				//on cherche si l'employe a une shift preferee pour ce jour
-				while (valeur_Shift == 0 && id_Shift < i_Nb_Shift)
+				//on etablit la liste des shifts "ajoutables"
+				vector<int> v_Shift_Ajoutables;
+				for (int shift = 0; shift < i_Nb_Shift; shift++)
 				{
-					valeur_Shift = instance->get_Poids_Affectation_Pers_Jour_Shift(e, j, id_Shift);
-					if (valeur_Shift == 0) id_Shift++;
-				}
-
-				//si on en a trouve une
-				if (valeur_Shift != 0)
-				{
-					//on verifie que les shift peuvent se suivre
+					//est-ce que la shift peut suivre la shift precedente
 					bool shift_Succede = false;
-					if (j != 0) {
-						int shift_Prec = s->v_v_IdShift_Par_Personne_et_Jour[e][j-1];
+					if (j == 0) 
+						shift_Succede = true;
+					else
+					{
+						int shift_Prec = v_Horizon_Employe[j - 1];
 						if (shift_Prec == -1)
 							shift_Succede = true;
-						else if (instance->is_possible_Shift_Succede(shift_Prec, id_Shift))
+						else if (instance->is_possible_Shift_Succede(shift_Prec, shift))
 							shift_Succede = true;
 					}
-					else
-						shift_Succede = true;
+				
+					if (duree_Travail_Actuelle + instance->get_Shift_Duree(shift) <= duree_Travail_Max //est-ce que ajouter la shift ne fait pas depasser la duree de travail
+						&& shift_Succede //cf ci-dessus
+						&& nb_Shift_Par_Type[shift] + 1 <= instance->get_Personne_Shift_Nbre_Max(e, shift)) // est-ce qu'on a pas atteint le nombre de shift max de ce type
 
-					//si ajouter la shift ne depasse pas le temps de travail max
-					//si la shift peut succeder a celle de la veille
-					//si on ne depasse le nombre de shift max d'un type
-					if (duree_Actuelle + instance->get_Shift_Duree(id_Shift) <= duree_Totale_Max
-						&& shift_Succede
-						&& nb_Shift_Par_Type[id_Shift] + 1 <= instance->get_Personne_Shift_Nbre_Max(e, id_Shift))
-					{
-						//on affecte la shift et on met a jour les autres donnees liees
-						s->v_v_IdShift_Par_Personne_et_Jour[e][j] = id_Shift;
-
-						duree_Actuelle += instance->get_Shift_Duree(id_Shift);
-						nb_Personne_Par_Jour_Et_Shift[j][id_Shift]++;
-						nb_Shift_Par_Type[id_Shift]++;
-						nb_Shift_Consecutive ++;
-						if (j % 7 >= 5) weekend_travail++;
-						shift_Affectee = true;
-					}
+						v_Shift_Ajoutables.push_back(shift);
 				}
 
-				//sinon on cherche la shift du jour sur laquelle il manque le plus de personnes
-				if (!shift_Affectee)
+				int nb_Shift_Ajoutables = v_Shift_Ajoutables.size();
+				int shift_A_Ajouter = -1;
+				//si il y a une seule shift ajoutable
+				if (nb_Shift_Ajoutables == 1)
 				{
-
-					//int id_Meilleure_Shift = 0, valeur_Meilleure;
-					id_Shift = 0;
-					valeur_Shift = 0;
-
-					for (int s = 0; s < i_Nb_Shift; s++)
-					{
-						int nb_Personne_Manquante_Shift = instance->get_Nbre_Personne_Requis_Jour_Shift(j, s) - nb_Personne_Par_Jour_Et_Shift[j][s];
-						if (valeur_Shift < nb_Personne_Manquante_Shift)
-						{
-							valeur_Shift = nb_Personne_Manquante_Shift;
-							id_Shift = s;
-						}
-					}
-
-					//si il y a au moins une shift dans laquelle il manque quelqu'un
-					if (valeur_Shift != 0) 
-					{
-						//on verifie que les shift peuvent se suivre
-						bool shift_Succede = false;
-						if (j != 0) {
-							int shift_Prec = s->v_v_IdShift_Par_Personne_et_Jour[e][j-1];
-							if (shift_Prec == -1)
-								shift_Succede = true;
-							else if (instance->is_possible_Shift_Succede(shift_Prec, id_Shift))
-								shift_Succede = true;
-						}
-						else
-							shift_Succede = true;
-
-						//si ajouter la shift ne depasse pas le temps de travail max
-						//si la shift peut succeder a celle de la veille
-						//si on ne depasse le nombre de shift max d'un type
-						if (duree_Actuelle + instance->get_Shift_Duree(id_Shift) <= duree_Totale_Max
-							&& shift_Succede
-							&& nb_Shift_Par_Type[id_Shift] + 1 <= instance->get_Personne_Shift_Nbre_Max(e, id_Shift))
-						{
-							//on affecte la shift et on met a jour les autres donnees liees
-							s->v_v_IdShift_Par_Personne_et_Jour[e][j] = id_Shift;
-							duree_Actuelle += instance->get_Shift_Duree(id_Shift);
-							nb_Personne_Par_Jour_Et_Shift[j][id_Shift]++;
-							nb_Shift_Par_Type[id_Shift]++;
-							nb_Shift_Consecutive++;
-							if (j % 7 >= 5) weekend_travail++;
-							shift_Affectee = true;
-						}
-					}
+					shift_A_Ajouter = v_Shift_Ajoutables[0];
 				}
-
-				//si toutes les shift sont remplies et qu'il doit forcement travailler aujourd'hui on le met sur une shift aleatoire
-				if (!shift_Affectee && nb_Shift_Consecutive < instance->get_Personne_Nbre_Shift_Consecutif_Min(e))
+				//si il y a plus d'une shift ajoutable
+				else if (nb_Shift_Ajoutables > 1)
 				{
-					id_Shift = rand() % i_Nb_Shift;
-					s->v_v_IdShift_Par_Personne_et_Jour[e][j] = id_Shift;
-					duree_Actuelle += instance->get_Shift_Duree(id_Shift);
-					nb_Personne_Par_Jour_Et_Shift[j][id_Shift]++;
-					nb_Shift_Par_Type[id_Shift]++;
-					nb_Shift_Consecutive++;
-					if (j % 7 >= 5) weekend_travail++;
-					shift_Affectee = true;
-				}
-				//sinon on le met en congé
-				else {
-					//si il n'était pas en congé le jour précédent
-					if (j == 0 || s->v_v_IdShift_Par_Personne_et_Jour[e][j-1] != -1)
+					//on cherche si l'employe a une shift preferee
+					for (int i = 0; i < nb_Shift_Ajoutables && shift_A_Ajouter == -1; i++)
 					{
-						//on s'assure que l'employe restera en conge le minimum necessaire pendant les jours suivant 
-						nb_Conge_Restant = instance->get_Personne_Jour_OFF_Consecutif_Min(e);
+						if (instance->get_Poids_Affectation_Pers_Jour_Shift(e, j, v_Shift_Ajoutables[i]) > 0)
+							shift_A_Ajouter = v_Shift_Ajoutables[i];
 					}
-					//sinon on laisse simplement l'id shift a -1
 
-					//le nombre de shift de travail consécutives repasse à 0;
-					nb_Shift_Consecutive = 0;
+					//si on a pas trouve de shift preferee
+					if (shift_A_Ajouter == -1)
+					{
+						int nb_Manquant_Max = -999999999;
+						//on cherche la shift sur laquelle il manque le plus de personnes
+						for (int i = 0; i < nb_Shift_Ajoutables; i++)
+						{
+							int nb_Manquant = instance->get_Nbre_Personne_Requis_Jour_Shift(j, v_Shift_Ajoutables[i]) - nb_Personne_Par_Jour_Par_Shift[j][v_Shift_Ajoutables[i]];
+							if ( nb_Manquant >= nb_Manquant_Max)
+							{
+								nb_Manquant_Max = nb_Manquant;
+								shift_A_Ajouter = v_Shift_Ajoutables[i];
+							}
+						}
+					}
+				}
+
+				//si on a trouve une shit a ajouter
+				if (shift_A_Ajouter != -1)
+				{
+					//on affecte la shift
+					v_Horizon_Employe[j] = shift_A_Ajouter;
+					//et on met a jour les autres donnees liees
+					duree_Travail_Actuelle += instance->get_Shift_Duree(shift_A_Ajouter);
+					nb_Personne_Par_Jour_Par_Shift[j][shift_A_Ajouter]++;
+					nb_Shift_Par_Type[shift_A_Ajouter]++;
+				}
+				//si il n'y en a aucune
+				else
+				{
+					v_Horizon_Employe[j] = -1;
 				}
 			}
-			//si il ne peut pas travailler ce jour on le met en congé
-			else 
-			{
-				//si il n'était pas en congé le jour précédent
-				if (j == 0 || s->v_v_IdShift_Par_Personne_et_Jour[e][j-1] != -1)
-				{
-					//on s'assure que l'employe restera en conge le minimum necessaire pendant les jours suivant 
-					nb_Conge_Restant = instance->get_Personne_Jour_OFF_Consecutif_Min(e);
-				}
-				//sinon on laisse simplement l'id shift a -1
-
-				//le nombre de shift de travail consécutives repasse à 0;
-				nb_Shift_Consecutive = 0;
-			}
-			//boucle sur les jours
-			j++;
-			if (nb_Conge_Restant > 0) nb_Conge_Restant--;
 		}
-	}*/
+
+
+		/*for (int k = 0; k < i_Nb_Jour; k++)
+			cout << v_Horizon_Employe[k] << " ";
+		cout << "\n";*/
+
+		//ajout du vecteur dans la solution
+		s->v_v_IdShift_Par_Personne_et_Jour[e] = v_Horizon_Employe;
+	}
 
 	return s;
 }
@@ -215,6 +145,7 @@ vector<int> Heuristique::jours_Travailles_Par_Personne(int id_Employe)
 
 	//initialisation du vecteur à retourner
 	vector<int> v_Travail_Par_Jour = vector<int>(i_Nb_Jour, 0);
+
 
 	//le but est d'assigner des differents jours OFF necessaire au respect des contraintes de conges, de We et de shift consecutifs min/max
 	//on va progresser des contraintes les moins flexibles aux plus flexibles
@@ -278,6 +209,7 @@ vector<int> Heuristique::jours_Travailles_Par_Personne(int id_Employe)
 	//tant qu'on est pas à la fin de l'horizon 
 	while (j < i_Nb_Jour)
 	{
+
 		//on va au prochain jour travaillé
 		if (v_Travail_Par_Jour[j] == -1)
 			j++;
@@ -291,8 +223,23 @@ vector<int> Heuristique::jours_Travailles_Par_Personne(int id_Employe)
 			//CAS 1 : moins de jours que le nombre de shift consecutif min
 			if (i_Nb_Jour_Affilee < i_Nb_Shift_Min)
 			{
-				//si on est pas au tout debut ou a la toute fin de l'horizon
-				if (j > 0 && j <= i_Nb_Jour - i_Nb_Shift_Min)
+				//cout << "UN\n";
+				//si on est au tout debut  de l'horizon
+				if (j == 0)
+				{
+					//on laisse tel quel
+					while (v_Travail_Par_Jour[j] == 0 && j < i_Nb_Jour)
+						j++;
+				}
+				//si on est a la toute fin de l'horizon
+				else if (j > i_Nb_Jour - i_Nb_Shift_Min)
+				{
+					//on laisse tel quel
+					while (j < i_Nb_Jour)
+						j++;
+				}
+				//sinon
+				else
 				{
 					//on bouche le trou avec des -1
 					while (v_Travail_Par_Jour[j] == 0)
@@ -301,18 +248,12 @@ vector<int> Heuristique::jours_Travailles_Par_Personne(int id_Employe)
 						j++;
 					}
 				}
-				//sinon
-				else
-				{
-					//on laisse tel quel
-					while (v_Travail_Par_Jour[j] == 0 && j < i_Nb_Jour)
-						j++;
-				}
 			}
 
 			//CAS 2 : entre les nombres de shift consecutif max et min
 			else if (i_Nb_Jour_Affilee <= i_Nb_Shift_Max)
 			{
+				//cout << "DEUX\n";
 				//parfait on laisse comme ça
 				j += i_Nb_Jour_Affilee;
 			}
@@ -320,6 +261,7 @@ vector<int> Heuristique::jours_Travailles_Par_Personne(int id_Employe)
 			//CAS 3 : plus que le nombre de shift consecutif max mais pas assez pour pouvoir le séparer en deux suite de shit de taille min
 			else if (i_Nb_Jour_Affilee < 2*i_Nb_Shift_Min + i_Nb_Conge_Min)
 			{
+				//cout << "TROIS\n";
 				//on rajoute des conges à la position j jusqu'à ce que la suite de 0 qui suit soit de la bonne taille
 				for (int i = 0; i < i_Nb_Jour_Affilee - i_Nb_Shift_Max; i++)
 				{
@@ -331,6 +273,7 @@ vector<int> Heuristique::jours_Travailles_Par_Personne(int id_Employe)
 			//CAS 4 : assez pour pouvoir rajouter un conge entier mais oblige d'avoir une suite de shift de taille minimum
 			else if (i_Nb_Jour_Affilee < i_Nb_Shift_Max + i_Nb_Shift_Min + i_Nb_Conge_Min)
 			{
+				//cout << "QUATRE\n";
 				//on laisse une suite de shift de taille min
 				j += i_Nb_Shift_Min;
 				//on met un suite de jours OFF de taille min
@@ -344,6 +287,7 @@ vector<int> Heuristique::jours_Travailles_Par_Personne(int id_Employe)
 			//CAS 5 : assez pour avoir une suite de shift de taille maximum
 			else
 			{
+				//cout << "CINQ\n";
 				//on laisse une suite de shift de taille max
 				j += i_Nb_Shift_Max;
 				//on met une suite de jours OFF de taille min
