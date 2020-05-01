@@ -10,7 +10,7 @@
 #include <set>
 #include "Instance.hpp"
 #include "Solution.hpp"
-#include "Heuristique.h"
+#include "Heuristique.hpp"
 
 using namespace std;
 
@@ -140,8 +140,6 @@ int main(int argc, const char * argv[])
 
 int Resolution(Instance * instance)
 {
-    int i_val_Retour_Fct_obj=0;
-    Solution* uneSolution = new Solution();
     
 /* EXEMPLE D UNE SOLUTION : */
 /*    uneSolution->v_v_IdShift_Par_Personne_et_Jour.push_back(vector<int> ()={-1,1,3,-1,-1,-1,-1,-1,1,1,3,3,-1,-1,1,1,3,-1,-1,1,1,1,1,1,-1,-1,1,3});
@@ -187,16 +185,10 @@ int Resolution(Instance * instance)
     
     uneSolution->i_valeur_fonction_objectif=4631;*/
  /* * * * * * * * * * * * */
-    
-    uneSolution = Heuristique::unnamed_heuristique(instance);
 
-    for (int i = 0; i < instance->get_Nombre_Personne(); i++) {
-        for (int j = 0; j < instance->get_Nombre_Jour(); j++) {
-            cout << uneSolution->v_v_IdShift_Par_Personne_et_Jour[i][j];
-        }
-        cout << "\n";
-    }
-    
+    int i_val_Retour_Fct_obj = 0;
+    Heuristique h = Heuristique(instance);
+    Solution* uneSolution = h.resolution_Instance();
 
     uneSolution->Verification_Solution(instance);
     
