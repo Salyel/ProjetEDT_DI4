@@ -1,3 +1,13 @@
+<<<<<<< HEAD
 ﻿  Heuristique.cpp
 C:\Users\Florent\Documents\Cours\S8\Optimisation Discrete\ProjetEDT_DI4\ProjetEDT_DI4\Heuristique.cpp(71,56): warning C4267: 'initialisation' : conversion de 'size_t' en 'int', perte possible de données
   ProjetEDT_DI4.vcxproj -> C:\Users\Florent\Documents\Cours\S8\Optimisation Discrete\ProjetEDT_DI4\x64\Debug\ProjetEDT_DI4.exe
+=======
+﻿  main.cpp
+D:\Programmes Visual\ProjetEDT_DI4\ProjetEDT_DI4\ProjetEDT_DI4\main.cpp(84,5): error C2065: 'set' : identificateur non déclaré
+D:\Programmes Visual\ProjetEDT_DI4\ProjetEDT_DI4\ProjetEDT_DI4\main.cpp(84,9): error C2275: 'std::vector<int,std::allocator<int>>' : utilisation non conforme de ce type comme expression
+D:\Programmes Visual\ProjetEDT_DI4\ProjetEDT_DI4\ProjetEDT_DI4\Instance.hpp(25): message : voir la déclaration de 'std::vector<int,std::allocator<int>>'
+D:\Programmes Visual\ProjetEDT_DI4\ProjetEDT_DI4\ProjetEDT_DI4\main.cpp(84,23): error C2065: 'boosto' : identificateur non déclaré
+D:\Programmes Visual\ProjetEDT_DI4\ProjetEDT_DI4\ProjetEDT_DI4\main.cpp(85,5): error C2065: 'boosto' : identificateur non déclaré
+D:\Programmes Visual\ProjetEDT_DI4\ProjetEDT_DI4\ProjetEDT_DI4\main.cpp(86,5): error C2065: 'boosto' : identificateur non déclaré
+>>>>>>> d1ab501ecc1f6fd2ab8c2451867ac8f7192f08d2
