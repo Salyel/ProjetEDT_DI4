@@ -1,2 +1,1 @@
-Inst6.txt
-
+Inst12.txt
