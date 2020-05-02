@@ -3,7 +3,7 @@
 
 #include "Instance.hpp"
 #include "Solution.hpp"
-#include "Heuristique.h"
+#include "Heuristique.hpp"
 #include <algorithm>
 #include <stdio.h>
 #include <vector>
