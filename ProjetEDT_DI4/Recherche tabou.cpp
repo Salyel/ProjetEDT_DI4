@@ -236,9 +236,12 @@ bool RechercheTabou::validiteVoisin(Solution voisin, int numero_employe)
         validite = false;
     }
     //Vérification du nombre maximal de shifts de notre employe
-    if (v_i_Nb_shift[j] > instance->get_Personne_Shift_Nbre_Max(numero_employe, j))
+    for (j = 0; j < instance->get_Nombre_Shift(); j++)
     {
-        validite = false;
+        if (v_i_Nb_shift[j] > instance->get_Personne_Shift_Nbre_Max(numero_employe, j))
+        {
+            validite = false;
+        }
     }
 
 	return validite;
