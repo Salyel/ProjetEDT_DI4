@@ -28,13 +28,14 @@ Solution* Heuristique::resolution_Instance()
 
 	for (int e = 0; e < i_Nb_Employe; e++)
 	{
+<<<<<<< HEAD
 		//cout << e << "\n";
 
+=======
+>>>>>>> 3dcb078000c1f2d7517014f7cd9b86da6c18d3b6
 		//on commence par determiner quels jours sont travailles et quels jours sont des conges
 		vector<int> v_Horizon_Employe = Heuristique::jours_Travailles_Par_Personne(e);
-
 		//puis on determine quelle est la meilleure shift a mettre pour chaque jour travailler
-
 		int duree_Travail_Min = instance->get_Personne_Duree_total_Min(e), duree_Travail_Max = instance->get_Personne_Duree_total_Max(e), duree_Travail_Actuelle = 0;
 		vector<int> nb_Shift_Par_Type = vector<int>(i_Nb_Shift, 0);
 
@@ -79,7 +80,7 @@ Solution* Heuristique::resolution_Instance()
 				else if (nb_Shift_Ajoutables > 1)
 				{
 					//on cherche si l'employe a une shift preferee
-					for (int i = 0; i < v_Shift_Ajoutables.size(); i++)
+					for (int i = 0; i < nb_Shift_Ajoutables && shift_A_Ajouter == -1; i++)
 					{
 						if (instance->get_Poids_Affectation_Pers_Jour_Shift(e, j, v_Shift_Ajoutables[i]) > 0)
 							shift_A_Ajouter = v_Shift_Ajoutables[i];
