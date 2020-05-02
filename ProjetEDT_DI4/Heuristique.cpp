@@ -28,6 +28,11 @@ Solution* Heuristique::resolution_Instance()
 
 	for (int e = 0; e < i_Nb_Employe; e++)
 	{
+<<<<<<< HEAD
+		//cout << e << "\n";
+
+=======
+>>>>>>> 3dcb078000c1f2d7517014f7cd9b86da6c18d3b6
 		//on commence par determiner quels jours sont travailles et quels jours sont des conges
 		vector<int> v_Horizon_Employe = Heuristique::jours_Travailles_Par_Personne(e);
 		//puis on determine quelle est la meilleure shift a mettre pour chaque jour travailler
@@ -84,19 +89,10 @@ Solution* Heuristique::resolution_Instance()
 					//si on a pas trouve de shift preferee
 					if (shift_A_Ajouter == -1)
 					{
-						//int nb_Manquant_Max = -999999;
 						int valeur_Shift_Max = -999999;
 						//on cherche la shift sur laquelle il manque le plus de personnes
 						for (int i = 0; i < nb_Shift_Ajoutables; i++)
 						{
-							/*int nb_Manquant = instance->get_Nbre_Personne_Requis_Jour_Shift(j, v_Shift_Ajoutables[i]) - nb_Personne_Par_Jour_Par_Shift[j][v_Shift_Ajoutables[i]];
-							if ( nb_Manquant >= nb_Manquant_Max)
-							{
-								nb_Manquant_Max = nb_Manquant;
-								shift_A_Ajouter = v_Shift_Ajoutables[i];
-
-							}*/
-
 							int nb_Manquant = instance->get_Nbre_Personne_Requis_Jour_Shift(j, v_Shift_Ajoutables[i]) - nb_Personne_Par_Jour_Par_Shift[j][v_Shift_Ajoutables[i]];
 							int nb_Shift_Par_Type_Restant = instance->get_Personne_Shift_Nbre_Max(e, v_Shift_Ajoutables[i]) - nb_Shift_Par_Type[v_Shift_Ajoutables[i]];
 							int valeur_Shift = nb_Manquant + nb_Shift_Par_Type_Restant;
@@ -126,12 +122,7 @@ Solution* Heuristique::resolution_Instance()
 				}
 			}
 		}
-
-
-		for (int k = 0; k < i_Nb_Jour; k++)
-			cout << v_Horizon_Employe[k] << " ";
-		cout << "\n";
-
+		
 		//rectification
 		int i_Nb_Shift_Min = instance->get_Personne_Nbre_Shift_Consecutif_Min(e);
 		bool solution_Correcte = false;
@@ -139,35 +130,38 @@ Solution* Heuristique::resolution_Instance()
 		while (!solution_Correcte && ite <10)
 		{
 			solution_Correcte = true;
-			int shift_Consecutif = 0;
-			for (int j = 0; j < i_Nb_Jour; j++)
+			for (int j = 1; j < i_Nb_Jour; j++)
 			{
-				if (v_Horizon_Employe[j] != -1)
+				if (v_Horizon_Employe[j] == -1)
 				{
-					shift_Consecutif++;
-				}
-				else
-				{
-					if (shift_Consecutif > 0 && shift_Consecutif < i_Nb_Shift_Min && j >= i_Nb_Shift_Min)
+					int nb_Shift_Prec = nb_Shift_Affilee(v_Horizon_Employe, j - 1, false), nb_Shift_Suiv = nb_Shift_Affilee(v_Horizon_Employe, j + 1, true);
+					//if (shift_Consecutif > 0 && shift_Consecutif < i_Nb_Shift_Min && j >= i_Nb_Shift_Min)
+					if((nb_Shift_Prec > 0 && nb_Shift_Prec < i_Nb_Shift_Min && j > i_Nb_Shift_Min - 1)
+						|| (nb_Shift_Suiv > 0 && nb_Shift_Suiv < i_Nb_Shift_Min && v_Horizon_Employe[j-1] != -1 && j < i_Nb_Jour - i_Nb_Shift_Min))
 					{
-						cout << j << "\n";
 						solution_Correcte = false;
 
-						//on etablit la liste des shifts "ajoutables"
+						//on etablit la liste des shifts "ajoutables" sans prendre en compte le temps de travail
 						vector<int> v_Shift_Ajoutables;
 						for (int shift = 0; shift < i_Nb_Shift; shift++)
 						{
 							//est-ce que la shift peut suivre la shift precedente
-							bool shift_Succede = false;
-							if (j == 0)
-								shift_Succede = true;
-							else
+
+							bool shift_Succede = true;
+							if (j > 0)
 							{
 								int shift_Prec = v_Horizon_Employe[j - 1];
-								if (shift_Prec == -1)
-									shift_Succede = true;
-								else if (instance->is_possible_Shift_Succede(shift_Prec, shift))
-									shift_Succede = true;
+								if (shift_Prec != -1)
+									if (!instance->is_possible_Shift_Succede(shift_Prec, shift))
+										shift_Succede = false;
+							}
+
+							if (j < i_Nb_Jour - 1)
+							{
+								int shift_Suiv = v_Horizon_Employe[j + 1];
+								if (shift_Suiv != -1)
+									if (!instance->is_possible_Shift_Succede(shift, shift_Suiv))
+										shift_Succede = false;
 							}
 
 							if (shift_Succede && nb_Shift_Par_Type[shift] + 1 <= instance->get_Personne_Shift_Nbre_Max(e, shift))
@@ -189,29 +183,97 @@ Solution* Heuristique::resolution_Instance()
 									int n = nb_Shift_Affilee(v_Horizon_Employe, k, true);
 									if (n > i_Nb_Shift_Min)
 									{
-										if (instance->get_Shift_Duree(v_Horizon_Employe[k]) >= instance->get_Shift_Duree(v_Shift_Ajoutables[0]))
+										for (int i = 0; i < nb_Shift_Ajoutables && !corrige; i++)
 										{
-											v_Horizon_Employe[k] = -1;
-											corrige = true;
+											if (instance->get_Shift_Duree(v_Horizon_Employe[k]) >= instance->get_Shift_Duree(v_Shift_Ajoutables[i]))
+											{
+												v_Horizon_Employe[k] = -1;
+												v_Horizon_Employe[j] = v_Shift_Ajoutables[i];
+												corrige = true;
+											}
+											else if (instance->get_Shift_Duree(v_Shift_Ajoutables[i]) <= instance->get_Shift_Duree(v_Horizon_Employe[k + n - 1]))
+											{
+												v_Horizon_Employe[k + n - 1] = -1;
+												v_Horizon_Employe[j] = v_Shift_Ajoutables[i];
+												corrige = true;
+											}
 										}
 									}
 									k += n;
 								}
 							}
-							if(corrige)
-								v_Horizon_Employe[j] = v_Shift_Ajoutables[0];
 
+							if (!corrige)
+							{
+								//on etablit la liste des shifts "ajoutables" sans prendre en compte le temps de travail et le max de shift
+								v_Shift_Ajoutables.clear();
+								for (int shift = 0; shift < i_Nb_Shift; shift++)
+								{
+									bool shift_Succede = true;
+									if (j > 0)
+									{
+										int shift_Prec = v_Horizon_Employe[j - 1];
+										if (shift_Prec != -1)
+											if (!instance->is_possible_Shift_Succede(shift_Prec, shift))
+												shift_Succede = false;
+									}
+
+									if (j < i_Nb_Jour - 1)
+									{
+										int shift_Suiv = v_Horizon_Employe[j + 1];
+										if (shift_Suiv != -1)
+											if (!instance->is_possible_Shift_Succede(shift, shift_Suiv))
+												shift_Succede = false;
+									}
+
+									if (shift_Succede)
+										v_Shift_Ajoutables.push_back(shift);
+								}
+
+								int nb_Shift_Ajoutables = v_Shift_Ajoutables.size();
+								if (nb_Shift_Ajoutables > 0)
+								{
+									int k = 0;
+									while (k < i_Nb_Jour && !corrige)
+									{
+										if (v_Horizon_Employe[k] == -1)
+											k++;
+										else
+										{
+											int n = nb_Shift_Affilee(v_Horizon_Employe, k, true);
+											if (n > i_Nb_Shift_Min)
+											{
+												for (int i = 0; i < nb_Shift_Ajoutables && corrige; i++)
+												{
+													if (v_Horizon_Employe[k] == v_Shift_Ajoutables[0])
+													{
+														v_Horizon_Employe[k] = -1;
+														v_Horizon_Employe[j] = v_Shift_Ajoutables[i];
+														corrige = true;
+													}
+													else if (v_Horizon_Employe[k + n - 1] == v_Shift_Ajoutables[0])
+													{
+														v_Horizon_Employe[k + n - 1] = -1;
+														v_Horizon_Employe[j] = v_Shift_Ajoutables[i];
+														corrige = true;
+													}
+												}
+											}
+											k += n;
+										}
+									}
+								}
+							}
 						}
 					}
-					shift_Consecutif = 0;
 				}
 			}
-			/*for (int k = 0; k < i_Nb_Jour; k++)
-				cout << v_Horizon_Employe[k] << " ";
-			cout << "\n";*/
-			ite++;
+			
+			ite++; //pour empêcher les boucles infinies
 		}
-		cout << "\n";
+		/*for (int k = 0; k < i_Nb_Jour; k++)
+			cout << v_Horizon_Employe[k] << " ";
+		cout << "\n";*/
 
 		//ajout du vecteur dans la solution
 		s->v_v_IdShift_Par_Personne_et_Jour[e] = v_Horizon_Employe;
