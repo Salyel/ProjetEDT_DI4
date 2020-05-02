@@ -1,6 +1,6 @@
-#define CHEMIN_DOSSIER_DONNEES "D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/"
-//#define CHEMIN_DOSSIER_DONNEES "C:/Users/Florent/Documents/Cours/S8/Optimisation Discrete/ProjetEDT_DI4/Format Etudiant Public/"
-#define NOM_FICHIER_LISTE_FICHIER_DONNEES "data.txt"
+//#define CHEMIN_DOSSIER_DONNEES "D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/"
+#define CHEMIN_DOSSIER_DONNEES "C:/Users/Florent/Documents/Cours/S8/Optimisation Discrete/ProjetEDT_DI4/Format Etudiant Public/"
+#define NOM_FICHIER_LISTE_FICHIER_DONNEES "ALLdata.txt"
 #define NOM_FICHIER_LISTE_SORTIE "sortie.txt"
 
 #include <iostream>
@@ -74,7 +74,7 @@ int main(int argc, const char * argv[])
     }
     */
 
-    /*
+    
     try
     {
         string s_tmp;
@@ -135,7 +135,7 @@ int main(int argc, const char * argv[])
         cout << err <<endl;
     }
     return 0;
-    */
+    
 }
 
 int Resolution(Instance * instance)

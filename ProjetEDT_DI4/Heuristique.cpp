@@ -1,8 +1,6 @@
 #include "Heuristique.hpp"
-#include <stdio.h>
 #include <stdlib.h>
 #include <iostream>
-
 
 Heuristique::Heuristique(Instance* i)
 {
@@ -132,6 +130,87 @@ Solution* Heuristique::resolution_Instance()
 
 		for (int k = 0; k < i_Nb_Jour; k++)
 			cout << v_Horizon_Employe[k] << " ";
+		cout << "\n";
+
+		//rectification
+		int i_Nb_Shift_Min = instance->get_Personne_Nbre_Shift_Consecutif_Min(e);
+		bool solution_Correcte = false;
+		int ite = 0;
+		while (!solution_Correcte && ite <10)
+		{
+			solution_Correcte = true;
+			int shift_Consecutif = 0;
+			for (int j = 0; j < i_Nb_Jour; j++)
+			{
+				if (v_Horizon_Employe[j] != -1)
+				{
+					shift_Consecutif++;
+				}
+				else
+				{
+					if (shift_Consecutif > 0 && shift_Consecutif < i_Nb_Shift_Min && j >= i_Nb_Shift_Min)
+					{
+						cout << j << "\n";
+						solution_Correcte = false;
+
+						//on etablit la liste des shifts "ajoutables"
+						vector<int> v_Shift_Ajoutables;
+						for (int shift = 0; shift < i_Nb_Shift; shift++)
+						{
+							//est-ce que la shift peut suivre la shift precedente
+							bool shift_Succede = false;
+							if (j == 0)
+								shift_Succede = true;
+							else
+							{
+								int shift_Prec = v_Horizon_Employe[j - 1];
+								if (shift_Prec == -1)
+									shift_Succede = true;
+								else if (instance->is_possible_Shift_Succede(shift_Prec, shift))
+									shift_Succede = true;
+							}
+
+							if (shift_Succede && nb_Shift_Par_Type[shift] + 1 <= instance->get_Personne_Shift_Nbre_Max(e, shift))
+								v_Shift_Ajoutables.push_back(shift);
+						}
+
+						int nb_Shift_Ajoutables = v_Shift_Ajoutables.size();
+						if (nb_Shift_Ajoutables > 0)
+						{
+
+							bool corrige = false;
+							int k = 0;
+							while (k < i_Nb_Jour && !corrige)
+							{
+								if (v_Horizon_Employe[k] == -1)
+									k++;
+								else
+								{
+									int n = nb_Shift_Affilee(v_Horizon_Employe, k, true);
+									if (n > i_Nb_Shift_Min)
+									{
+										if (instance->get_Shift_Duree(v_Horizon_Employe[k]) >= instance->get_Shift_Duree(v_Shift_Ajoutables[0]))
+										{
+											v_Horizon_Employe[k] = -1;
+											corrige = true;
+										}
+									}
+									k += n;
+								}
+							}
+							if(corrige)
+								v_Horizon_Employe[j] = v_Shift_Ajoutables[0];
+
+						}
+					}
+					shift_Consecutif = 0;
+				}
+			}
+			/*for (int k = 0; k < i_Nb_Jour; k++)
+				cout << v_Horizon_Employe[k] << " ";
+			cout << "\n";*/
+			ite++;
+		}
 		cout << "\n";
 
 		//ajout du vecteur dans la solution
