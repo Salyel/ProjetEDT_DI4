@@ -25,9 +25,18 @@ class RechercheTabou
 		~RechercheTabou();
 		Solution* rechercheTabou();
 		void ajouterElement(vector<int> tabou);
+		bool presenceMouvementEtInverse(vector<int> mouvement);
 		bool presenceMouvement(vector<int> mouvement);
 		int valeurVoisin(Solution voisin);
+		int nouvelleValeurVoisinJours(Solution voisin, int index_employe, int index_jour1, int index_jour2, vector<vector<int>> v_i_nb_personne_par_Shift_et_jour);
+		int nouvelleValeurVoisinShifts(Solution voisin, int index_employe, int index_jour, int index_shift, int index_ancien_shift, vector<vector<int>> v_i_nb_personne_par_Shift_et_jour);
+		vector<vector<int>> calculNbPersonneShiftJour(Solution voisin);
 		bool validiteVoisin(Solution voisin, int numero_employe);
+		bool validiteVoisinShift(Solution voisin, int numero_employe, int index_jour, int ancien_shift, int nouveau_shift, int duree_travail, vector<int> v_i_Nb_shift);
+		bool validiteVoisinJours(Solution voisin, int numero_employe);
+		int calculDureeTravail(Solution solution);
+		vector<int> calculNbShift(Solution solution);
+		void printVoisin(Solution voisin);
 
 		void setInstance(Instance* instance);
 		void setSolutionInitiale(Solution* solution);

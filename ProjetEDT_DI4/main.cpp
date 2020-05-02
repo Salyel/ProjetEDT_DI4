@@ -1,6 +1,6 @@
-//#define CHEMIN_DOSSIER_DONNEES "D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/"
-#define CHEMIN_DOSSIER_DONNEES "C:/Users/Florent/Documents/Cours/S8/Optimisation Discrete/ProjetEDT_DI4/Format Etudiant Public/"
-#define NOM_FICHIER_LISTE_FICHIER_DONNEES "ALLdata.txt"
+#define CHEMIN_DOSSIER_DONNEES "D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/"
+//#define CHEMIN_DOSSIER_DONNEES "C:/Users/Florent/Documents/Cours/S8/Optimisation Discrete/ProjetEDT_DI4/Format Etudiant Public/"
+#define NOM_FICHIER_LISTE_FICHIER_DONNEES "data.txt"
 #define NOM_FICHIER_LISTE_SORTIE "sortie.txt"
 
 #include <iostream>
@@ -11,6 +11,7 @@
 #include "Instance.hpp"
 #include "Solution.hpp"
 #include "Heuristique.hpp"
+#include "Recherche tabou.h"
 
 using namespace std;
 
@@ -64,8 +65,15 @@ int main(int argc, const char * argv[])
         cout << "\n";
     }
 
-    test.~Solution();
-
+    cout << "la partie que je viens decrire \n";
+    test2.v_v_IdShift_Par_Personne_et_Jour[0].pop_back();
+    test2.v_v_IdShift_Par_Personne_et_Jour[0].pop_back();
+    for (int i = 0; i < 1; i++) {
+        for (int j = 0; j < test.v_v_IdShift_Par_Personne_et_Jour[0].size(); j++) {
+            cout << test.v_v_IdShift_Par_Personne_et_Jour[i][j];
+        }
+        cout << "\n";
+    }
     for (int i = 0; i < 1; i++) {
         for (int j = 0; j < test2.v_v_IdShift_Par_Personne_et_Jour[0].size(); j++) {
             cout << test2.v_v_IdShift_Par_Personne_et_Jour[i][j];
@@ -74,7 +82,6 @@ int main(int argc, const char * argv[])
     }
     */
 
-    
     try
     {
         string s_tmp;
@@ -135,7 +142,6 @@ int main(int argc, const char * argv[])
         cout << err <<endl;
     }
     return 0;
-    
 }
 
 int Resolution(Instance * instance)
@@ -190,10 +196,16 @@ int Resolution(Instance * instance)
     Heuristique h = Heuristique(instance);
     Solution* uneSolution = h.resolution_Instance();
 
-    uneSolution->Verification_Solution(instance);
-    
-    i_val_Retour_Fct_obj=uneSolution->i_valeur_fonction_objectif;
-    delete uneSolution;
+   /* uneSolution->Verification_Solution(instance);
+    i_val_Retour_Fct_obj = uneSolution->i_valeur_fonction_objectif;
+    delete uneSolution; */
+
+    RechercheTabou tabou = RechercheTabou(instance, 100, uneSolution, 100, false);
+    Solution* meilleure_solution = tabou.rechercheTabou();
+    meilleure_solution->Verification_Solution(instance);
+    i_val_Retour_Fct_obj=meilleure_solution->i_valeur_fonction_objectif;
+    delete meilleure_solution;
+
     return i_val_Retour_Fct_obj;
 }
 

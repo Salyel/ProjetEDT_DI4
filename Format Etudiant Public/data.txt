@@ -1,1 +1,8 @@
-Inst10.txt
+Inst1.txt
+Inst2.txt
+Inst3.txt
+Inst4.txt
+Inst5.txt
+Inst6.txt
+Inst7.txt
+Inst8.txt

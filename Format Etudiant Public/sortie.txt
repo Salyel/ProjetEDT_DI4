@@ -968,3 +968,342 @@ C:/Users/Florent/Documents/Cours/S8/Optimisation Discrete/ProjetEDT_DI4/Format E
 C:/Users/Florent/Documents/Cours/S8/Optimisation Discrete/ProjetEDT_DI4/Format Etudiant Public/Inst16.txt	2.77936	0
 C:/Users/Florent/Documents/Cours/S8/Optimisation Discrete/ProjetEDT_DI4/Format Etudiant Public/Inst17.txt	2.87068	0
 C:/Users/Florent/Documents/Cours/S8/Optimisation Discrete/ProjetEDT_DI4/Format Etudiant Public/Inst18.txt	12.2414	0
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst1.txt	0.0169813	0
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst2.txt	0.0511369	0
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst3.txt	0.0352277	0
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst4.txt	0.0561015	0
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst5.txt	0.0739868	0
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst6.txt	0.111814	0
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst7.txt	0.160959	0
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst8.txt	0.189793	0
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst9.txt	0.262161	0
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst10.txt	0.561133	0
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst11.txt	0.151683	0
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst12.txt	0.282375	0
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst13.txt	0.126769	0
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst14.txt	0.201472	0
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst15.txt	0.377783	0
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst16.txt	2.10394	0
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst17.txt	2.14572	0
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst18.txt	8.70938	0
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst10.txt	0.560893	0
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst8.txt	0.129911	0
+ Fichier données	 Tps de résolution 	 Best solution
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst1.txt	0.222423	0
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst1.txt	0.235074	0
+ Fichier données	 Tps de résolution 	 Best solution
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst1.txt	0.223039	0
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst1.txt	0.0190212	0
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst1.txt	25.2922	0
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst1.txt	0.216218	0
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst1.txt	0.20796	0
+ Fichier données	 Tps de résolution 	 Best solution
+ Fichier données	 Tps de résolution 	 Best solution
+ Fichier données	 Tps de résolution 	 Best solution
+ Fichier données	 Tps de résolution 	 Best solution
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst1.txt	1.77602	1323
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst1.txt	1.29655	1323
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst1.txt	1.3074	1323
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst8.txt	0.120029	0
+ Fichier données	 Tps de résolution 	 Best solution
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst1.txt	1.28412	1323
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst3.txt	15.7657	5103
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst3.txt	0.0392048	0
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst3.txt	0.0247903	0
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst3.txt	382.291	5103
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst3.txt	30.0893	5103
+ Fichier données	 Tps de résolution 	 Best solution
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst3.txt	2.66775	5103
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst3.txt	0.0525623	0
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst3.txt	3.41368	5103
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst3.txt	28.2299	5103
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst3.txt	3.97611	5103
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst3.txt	3.38575	5103
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst3.txt	12.4999	5103
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst3.txt	29.3299	5103
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst3.txt	11.9309	5103
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst3.txt	23.951	5103
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst3.txt	3.22595	5103
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst3.txt	2.88158	5103
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst3.txt	3.47089	5103
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst3.txt	9.3873	5103
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst3.txt	4.52258	5103
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst3.txt	5.17694	5103
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst3.txt	8.12339	5103
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst3.txt	11.2017	49
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst3.txt	9.13937	4903
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst3.txt	3.54358	4903
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst3.txt	32.631	4903
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst3.txt	0.680262	4903
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst3.txt	0.207915	5002
+ Fichier données	 Tps de résolution 	 Best solution
+ Fichier données	 Tps de résolution 	 Best solution
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst3.txt	82.8887	4903
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst3.txt	15.5987	4903
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst3.txt	15.736	4903
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst3.txt	21.8078	4903
+ Fichier données	 Tps de résolution 	 Best solution
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst3.txt	14.9472	4903
+ Fichier données	 Tps de résolution 	 Best solution
+ Fichier données	 Tps de résolution 	 Best solution
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst3.txt	15.9087	4903
+ Fichier données	 Tps de résolution 	 Best solution
+ Fichier données	 Tps de résolution 	 Best solution
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst3.txt	2.7133	0
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst3.txt	0.224388	0
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst3.txt	17.9084	4698
+ Fichier données	 Tps de résolution 	 Best solution
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst3.txt	191.253	2459
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst3.txt	4.65435	4903
+ Fichier données	 Tps de résolution 	 Best solution
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst3.txt	137.141	2661
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst3.txt	191.083	2459
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst1.txt	5.94214	612
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst2.txt	71.1482	3754
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst3.txt	197.363	2459
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst4.txt	270.074	7407
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst1.txt	0.0792408	922
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst1.txt	0.0924845	922
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst2.txt	19.7742	3767
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst3.txt	5.70104	4698
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst4.txt	19.0122	4924
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst5.txt	49.4797	7690
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst1.txt	5.87444	612
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst1.txt	6.44221	1322
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst1.txt	6.80805	304
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst1.txt	1.14132	1323
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst2.txt	3.25602	5592
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst3.txt	5.76751	5103
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst1.txt	5.93079	612
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst1.txt	5.48552	612
+ Fichier données	 Tps de résolution 	 Best solution
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst3.txt	105.136	2358
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst3.txt	102.972	2358
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst3.txt	17.5711	4796
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst1.txt	0.0639443	1323
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst3.txt	104.186	2358
+ Fichier données	 Tps de résolution 	 Best solution
+ Fichier données	 Tps de résolution 	 Best solution
+ Fichier données	 Tps de résolution 	 Best solution
+ Fichier données	 Tps de résolution 	 Best solution
+ Fichier données	 Tps de résolution 	 Best solution
+ Fichier données	 Tps de résolution 	 Best solution
+ Fichier données	 Tps de résolution 	 Best solution
+ Fichier données	 Tps de résolution 	 Best solution
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst3.txt	10.5135	5092
+ Fichier données	 Tps de résolution 	 Best solution
+ Fichier données	 Tps de résolution 	 Best solution
+ Fichier données	 Tps de résolution 	 Best solution
+ Fichier données	 Tps de résolution 	 Best solution
+ Fichier données	 Tps de résolution 	 Best solution
+ Fichier données	 Tps de résolution 	 Best solution
+ Fichier données	 Tps de résolution 	 Best solution
+ Fichier données	 Tps de résolution 	 Best solution
+ Fichier données	 Tps de résolution 	 Best solution
+ Fichier données	 Tps de résolution 	 Best solution
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst3.txt	8.26726	5103
+ Fichier données	 Tps de résolution 	 Best solution
+ Fichier données	 Tps de résolution 	 Best solution
+ Fichier données	 Tps de résolution 	 Best solution
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst3.txt	10.1973	5092
+ Fichier données	 Tps de résolution 	 Best solution
+ Fichier données	 Tps de résolution 	 Best solution
+ Fichier données	 Tps de résolution 	 Best solution
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst3.txt	118.302	2358
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst3.txt	33.5577	2358
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst1.txt	2.8732	508
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst2.txt	15.1123	3754
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst3.txt	33.5546	2358
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst4.txt	64.511	7405
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst5.txt	395.01	2892
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst1.txt	0.17859	922
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst2.txt	15.6048	3767
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst3.txt	10.4677	4698
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst4.txt	22.1664	4924
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst1.txt	0.125769	1323
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst2.txt	1.59968	4067
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst3.txt	0.848653	4796
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst4.txt	2.15661	5224
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst5.txt	3.42565	7895
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst6.txt	60.2592	11066
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst7.txt	12.1571	13836
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst8.txt	70.2408	15021
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst1.txt	0.169301	1323
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst1.txt	0.121801	1323
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst2.txt	0.16637	5592
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst3.txt	0.104992	5103
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst4.txt	0.184756	8556
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst5.txt	0.306711	9618
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst6.txt	0.523971	25005
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst7.txt	0.877824	15975
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst8.txt	1.19131	25140
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst9.txt	3.83801	28243
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst1.txt	0.0917718	1323
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst2.txt	0.160511	5592
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst3.txt	0.102561	5103
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst4.txt	0.195316	8556
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst5.txt	0.318178	9618
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst6.txt	0.545866	25005
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst7.txt	0.651817	15975
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst8.txt	1.11254	25140
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst9.txt	3.91914	28243
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst1.txt	0.0594392	1323
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst2.txt	0.153756	5592
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst3.txt	0.0979122	5103
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst4.txt	0.150815	8556
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst5.txt	0.326962	9618
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst6.txt	0.683134	25005
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst1.txt	0.0771605	1323
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst2.txt	0.563106	5592
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst3.txt	0.456405	5103
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst4.txt	0.79824	8556
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst5.txt	1.12228	9618
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst6.txt	1.05728	25005
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst7.txt	0.850627	15975
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst8.txt	1.71705	25140
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst9.txt	6.44848	28243
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst1.txt	0.207337	1323
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst2.txt	0.200431	5592
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst3.txt	0.198907	5103
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst4.txt	0.271539	8556
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst5.txt	0.408212	9618
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst6.txt	0.806422	25005
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst7.txt	0.963931	15975
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst8.txt	1.47344	25140
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst9.txt	5.68243	28243
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst1.txt	0.0761969	1323
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst2.txt	1.77061	4067
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst3.txt	0.848149	4796
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst4.txt	2.19632	5224
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst5.txt	8.17647	7895
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst1.txt	0.0861221	1323
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst2.txt	1.71259	3770
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst3.txt	0.469035	4494
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst4.txt	0.808474	6732
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst5.txt	3.02198	7887
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst1.txt	0.137233	1323
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst2.txt	0.15848	5592
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst3.txt	0.101318	5103
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst4.txt	0.233617	8556
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst5.txt	0.364803	9618
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst6.txt	0.717624	25005
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst7.txt	0.654097	15975
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst1.txt	0.126156	1323
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst2.txt	1.67784	4067
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst3.txt	0.852887	4796
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst4.txt	2.17585	5224
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst5.txt	3.43086	7895
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst1.txt	0.0536778	1323
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst1.txt	3.28696	508
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst2.txt	14.1994	3754
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst3.txt	32.8724	2358
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst1.txt	2.89621	508
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst1.txt	2.88083	508
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst4.txt	48.4744	7405
+ Fichier données	 Tps de résolution 	 Best solution
+ Fichier données	 Tps de résolution 	 Best solution
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst1.txt	0.189546	1323
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst2.txt	13.8737	3758
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst3.txt	2.78849	4796
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst4.txt	7.75585	5020
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst5.txt	20.3467	7689
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst1.txt	0.160401	1323
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst2.txt	14.8133	3958
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst3.txt	3.16718	4796
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst4.txt	28.5215	4616
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst5.txt	22.9085	7689
