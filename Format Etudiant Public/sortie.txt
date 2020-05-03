@@ -201,3 +201,5 @@ D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst1.tx
 D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst1.txt	2.58101	716
  Fichier données	 Tps de résolution 	 Best solution
 D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst1.txt	2.52993	716
+ Fichier données	 Tps de résolution 	 Best solution
+D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/Inst3.txt	20.705	3882

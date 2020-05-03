@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <iostream>
 #include <chrono>
+#include <time.h>
 
 /* Constructeur de la classe RechercheTabou, les arguments taille_liste_tabue, nb_iteration_max et aspiration permettent de modifier le fonctionnement de l'algorithme.
  * int taille_liste_taboue : la taille de notre liste taboue, correspondant au nombre de mouvements différents que nous stockons dans notre liste
@@ -31,6 +32,7 @@ RechercheTabou::~RechercheTabou()
 Solution* RechercheTabou::rechercheTabou(chrono::time_point<chrono::system_clock> start)
 {
     chrono::time_point<chrono::system_clock> chrono_start, chrono_end;
+    srand(time(NULL));
     chrono_start = start;
     chrono_end = chrono::system_clock::now();
     chrono::duration<double> elapsed;
@@ -51,6 +53,8 @@ Solution* RechercheTabou::rechercheTabou(chrono::time_point<chrono::system_clock
     int index_employe;
     int index_jour1;
     int index_jour2;
+    int index_jour;
+    int index_shift;
 
     vector<int> mouvement_utilise;
     while (i < nb_iteration_max && elapsed.count() < 180)
@@ -65,9 +69,9 @@ Solution* RechercheTabou::rechercheTabou(chrono::time_point<chrono::system_clock
         // On effectue d'abord cet opérateur puisqu'il est beaucoup plus rapide que notre second.
         for (index_employe = 0; index_employe < solution_courante.v_v_IdShift_Par_Personne_et_Jour.size(); index_employe++)
         {
-            for (int index_jour = 0; index_jour < solution_courante.v_v_IdShift_Par_Personne_et_Jour[index_employe].size(); index_jour++)
+            for (index_jour = 0; index_jour < solution_courante.v_v_IdShift_Par_Personne_et_Jour[index_employe].size(); index_jour++)
             {
-                for (int index_shift = 0; index_shift < instance->get_Nombre_Shift(); index_shift++)
+                for (index_shift = 0; index_shift < instance->get_Nombre_Shift(); index_shift++)
                 {
                     vector<int> mouvement_actuel = { index_employe, index_jour, index_shift };
                     if (index_shift != solution_courante.v_v_IdShift_Par_Personne_et_Jour[index_employe][index_jour] && solution_courante.v_v_IdShift_Par_Personne_et_Jour[index_employe][index_jour] != -1 && (!presenceMouvement(mouvement_actuel) || aspiration))
@@ -506,7 +510,7 @@ bool RechercheTabou::validiteVoisin(Solution voisin, int numero_employe)
 	return validite;
 }
 
-//Renvoie false si toutes les contraintes de la nouvelle solution ne sont pas respectées, true sinon, version améliorée en terme de complexité pour l'opérateur des Shifts 
+//Renvoie false si toutes les contraintes de la nouvelle solution ne sont pas respectées, true sinon, version améliorée en terme de complexité pour l'opérateur des Shifts, ne fonctionne malheureusement pas 
 bool RechercheTabou::validiteVoisinShift(Solution voisin, int numero_employe, int index_jour, int ancien_shift, int nouveau_shift, int duree_travail, vector<int> v_i_Nb_shift)
 {
     bool validite = true;
