@@ -7,6 +7,7 @@
 #include <algorithm>
 #include <stdio.h>
 #include <vector>
+#include <chrono>
 
 using namespace std;
 
@@ -18,13 +19,15 @@ class RechercheTabou
 		Solution* solution_initiale;
 		int nb_iteration_max;
 		bool aspiration;
-		vector<vector<int>> liste_taboue;	// [[1, 6, 7]] ---> [[Employé n°1], [Employé n°2], ...] & [[n° employé, jour de travail 1, jour de travail 2]]
+		vector<vector<int>> liste_taboue_jours;	// [[1, 6, 7]] ---> [[Employé n°1], [Employé n°2], ...] & [[n° employé, jour de travail 1, jour de travail 2]]
+		vector<vector<int>> liste_taboue_shifts;	// [[1, 6, 7]] ---> [[Employé n°1], [Employé n°2], ...] & [[n° employé, n° du jour, nouveau_shift]]
 
 	public:
 		RechercheTabou(Instance* instance, int taille_liste_taboue, Solution* solution_initiale, int nb_interation_max, bool aspiration);
 		~RechercheTabou();
-		Solution* rechercheTabou();
-		void ajouterElement(vector<int> tabou);
+		Solution* rechercheTabou(chrono::time_point<chrono::system_clock> start);
+		void ajouterElementJours(vector<int> tabou);
+		void ajouterElementShifts(vector<int> tabou);
 		bool presenceMouvementEtInverse(vector<int> mouvement);
 		bool presenceMouvement(vector<int> mouvement);
 		int valeurVoisin(Solution voisin);

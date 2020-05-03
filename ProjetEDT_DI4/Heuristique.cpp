@@ -28,11 +28,6 @@ Solution* Heuristique::resolution_Instance()
 
 	for (int e = 0; e < i_Nb_Employe; e++)
 	{
-<<<<<<< HEAD
-		//cout << e << "\n";
-
-=======
->>>>>>> 3dcb078000c1f2d7517014f7cd9b86da6c18d3b6
 		//on commence par determiner quels jours sont travailles et quels jours sont des conges
 		vector<int> v_Horizon_Employe = Heuristique::jours_Travailles_Par_Personne(e);
 		//puis on determine quelle est la meilleure shift a mettre pour chaque jour travailler

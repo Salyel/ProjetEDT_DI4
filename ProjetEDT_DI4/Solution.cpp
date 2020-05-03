@@ -14,7 +14,7 @@ Solution::~Solution()
 bool Solution::Verification_Solution(Instance *instance)
 {
     bool b_solution_ok=true;
-    int i_fc_obj,i,j,k,i_duree_travail,i_shift_consecutif,i_nb_WE;
+    int i_fc_obj,i,j,k,i_duree_travail,i_shift_consecutif,i_nb_WE,i_conge_consecutif;
     vector<vector<int>> v_i_nb_personne_par_Shift_et_jour(instance->get_Nombre_Shift(),vector<int> (instance->get_Nombre_Jour(),0));
     
     //Vérification de la taille de v_v_IdShift_Par_Personne_et_Jour
@@ -23,72 +23,88 @@ bool Solution::Verification_Solution(Instance *instance)
         cout<< "Erreur : v_v_IdShift_Par_Personne_et_Jour n'est pas de la bonne taille en nombre de personnes." <<endl;
         b_solution_ok=false;
     }
-    for(i=0;i<v_v_IdShift_Par_Personne_et_Jour.size();i++)
+    for (i = 0; i < v_v_IdShift_Par_Personne_et_Jour.size(); i++)
     {
-        vector<int> v_i_Nb_shift(instance->get_Nombre_Shift(),0);
-        i_duree_travail=0;
-        i_shift_consecutif=0;
-        i_nb_WE=0;
-        if(v_v_IdShift_Par_Personne_et_Jour[i].size()!=instance->get_Nombre_Jour())
+        vector<int> v_i_Nb_shift(instance->get_Nombre_Shift(), 0);
+        i_duree_travail = 0;
+        i_shift_consecutif = 0;
+        i_conge_consecutif = 0;
+        i_nb_WE = 0;
+        if (v_v_IdShift_Par_Personne_et_Jour[i].size() != instance->get_Nombre_Jour())
         {
-            cout<< "Erreur : v_v_IdShift_Par_Personne_et_Jour n'est pas de la bonne taille en nombre de jour pour la personne "<< i<<"." <<endl;
-            b_solution_ok=false;
+            cout << "Erreur : v_v_IdShift_Par_Personne_et_Jour n'est pas de la bonne taille en nombre de jour pour la personne " << i << "." << endl;
+            b_solution_ok = false;
         }
         //Vérification que v_v_IdShift_Par_Personne_et_Jour contient que des Ids Shifts valident ou -1
-        for(j=0;j<v_v_IdShift_Par_Personne_et_Jour[i].size();j++)
+        for (j = 0; j < v_v_IdShift_Par_Personne_et_Jour[i].size(); j++)
         {
-        if((v_v_IdShift_Par_Personne_et_Jour[i][j]!=-1)&&((v_v_IdShift_Par_Personne_et_Jour[i][j]<0)||(v_v_IdShift_Par_Personne_et_Jour[i][j]>instance->get_Nombre_Shift())))
+            if ((v_v_IdShift_Par_Personne_et_Jour[i][j] != -1) && ((v_v_IdShift_Par_Personne_et_Jour[i][j] < 0) || (v_v_IdShift_Par_Personne_et_Jour[i][j] > instance->get_Nombre_Shift())))
             {
-                cout<< "Erreur : v_v_IdShift_Par_Personne_et_Jour["<< i<<"]["<<j <<"] ne contient pas un shift valide." <<endl;
-                b_solution_ok=false;
+                cout << "Erreur : v_v_IdShift_Par_Personne_et_Jour[" << i << "][" << j << "] ne contient pas un shift valide." << endl;
+                b_solution_ok = false;
             }
             else
             {
-                if(v_v_IdShift_Par_Personne_et_Jour[i][j]!=-1)
+                if (v_v_IdShift_Par_Personne_et_Jour[i][j] != -1)
                 {
-                    v_i_Nb_shift[v_v_IdShift_Par_Personne_et_Jour[i][j]]=v_i_Nb_shift[v_v_IdShift_Par_Personne_et_Jour[i][j]]+1;
-                    v_i_nb_personne_par_Shift_et_jour[v_v_IdShift_Par_Personne_et_Jour[i][j]][j]=v_i_nb_personne_par_Shift_et_jour[v_v_IdShift_Par_Personne_et_Jour[i][j]][j]+1;
-                    i_duree_travail=i_duree_travail+instance->get_Shift_Duree(v_v_IdShift_Par_Personne_et_Jour[i][j]);
+                    v_i_Nb_shift[v_v_IdShift_Par_Personne_et_Jour[i][j]] = v_i_Nb_shift[v_v_IdShift_Par_Personne_et_Jour[i][j]] + 1;
+                    v_i_nb_personne_par_Shift_et_jour[v_v_IdShift_Par_Personne_et_Jour[i][j]][j] = v_i_nb_personne_par_Shift_et_jour[v_v_IdShift_Par_Personne_et_Jour[i][j]][j] + 1;
+                    i_duree_travail = i_duree_travail + instance->get_Shift_Duree(v_v_IdShift_Par_Personne_et_Jour[i][j]);
                     i_shift_consecutif++;
-                    if((j%7)==5)
+                    if ((j % 7) == 5)
                         i_nb_WE++;
-                    if(((j%7)==6)&&(v_v_IdShift_Par_Personne_et_Jour[i][j-1]==-1))
+                    if (((j % 7) == 6) && (v_v_IdShift_Par_Personne_et_Jour[i][j - 1] == -1))
                         i_nb_WE++;
+
                     //Vérification du nombre de shifts consécutifs maximum assignable à chaque personne
-                    if(i_shift_consecutif>instance->get_Personne_Nbre_Shift_Consecutif_Max(i))
+                    if (i_shift_consecutif > instance->get_Personne_Nbre_Shift_Consecutif_Max(i))
                     {
-                        cout<< "Erreur : Le nombre max de shift consécutif de la personne "<< i<<" a été dépassé." <<endl;
-                        b_solution_ok=false;
+                        cout << "Erreur : Le nombre max de shift consécutif de la personne " << i << " a été dépassé." << endl;
+                        b_solution_ok = false;
                     }
 
                     //Vérification des jours de congés de chaque personne
-                    if(!instance->is_Available_Personne_Jour(i,j))
+                    if (!instance->is_Available_Personne_Jour(i, j))
                     {
                         {
-                            cout<< "Erreur : Jour de congé "<<j<<" de la personne "<< i<<" non respecté." <<endl;
-                            b_solution_ok=false;
+                            cout << "Erreur : Jour de congé " << j << " de la personne " << i << " non respecté." << endl;
+                            b_solution_ok = false;
                         }
+                    }
+
+                    //Vérification du nombre de congés consécutifs minimums assignables à chaque personne
+                    if (i_conge_consecutif != 0)
+                    {
+                        if (i_conge_consecutif < instance->get_Personne_Jour_OFF_Consecutif_Min(i) && j > instance->get_Personne_Jour_OFF_Consecutif_Min(i))
+                        {
+                            cout << "Erreur : Jour de congé consécutif min de la personne " << i << " non respecté au jour " << j << "." << endl;
+                            b_solution_ok = false;
+                        }
+                        i_conge_consecutif = 0;
                     }
                 }
                 else
                 {
+                    i_conge_consecutif++;
                     //Vérification du nombre de shifts consécutifs minimum assignable à chaque personne
-                if((i_shift_consecutif<instance->get_Personne_Nbre_Shift_Consecutif_Min(i))&&(i_shift_consecutif!=0)&&((j-instance->get_Personne_Nbre_Shift_Consecutif_Min(i))>0))
+                    if ((i_shift_consecutif < instance->get_Personne_Nbre_Shift_Consecutif_Min(i)) && (i_shift_consecutif != 0) && ((j - instance->get_Personne_Nbre_Shift_Consecutif_Min(i)) > 0))
                     {
-                        cout<< "Erreur : Le nombre min de shift consécutif de la personne "<< i<<" n'a pas été dépassé." <<endl;
-                        b_solution_ok=false;
-                    }
-                    i_shift_consecutif=0;
-                }
-                //Vérification des successions des Shifts
-                if(j!=(v_v_IdShift_Par_Personne_et_Jour[i].size()-1))
-                {
-                    if((v_v_IdShift_Par_Personne_et_Jour[i][j]!=-1)&&(v_v_IdShift_Par_Personne_et_Jour[i][j+1]!=-1))
-                    {
-                        if(!instance->is_possible_Shift_Succede(v_v_IdShift_Par_Personne_et_Jour[i][j], v_v_IdShift_Par_Personne_et_Jour[i][j+1]))
                         {
-                            cout<< "Erreur : Deux shifts se succèdent alors qu'il ne devrait pas, pour la personne "<<i<<"le jour"<<j<<" et "<<j+1<<"."<<endl;
-                            b_solution_ok=false;
+                            cout << "Erreur : Le nombre min de shift consécutif de la personne " << i << " n'a pas été dépassé." << endl;
+                            b_solution_ok = false;
+                        }
+                    }
+                    i_shift_consecutif = 0;
+                    //Vérification des successions des Shifts
+                    if (j != (v_v_IdShift_Par_Personne_et_Jour[i].size() - 1))
+                    {
+                        if ((v_v_IdShift_Par_Personne_et_Jour[i][j] != -1) && (v_v_IdShift_Par_Personne_et_Jour[i][j + 1] != -1))
+                        {
+                            if (!instance->is_possible_Shift_Succede(v_v_IdShift_Par_Personne_et_Jour[i][j], v_v_IdShift_Par_Personne_et_Jour[i][j + 1]))
+                            {
+                                cout << "Erreur : Deux shifts se succèdent alors qu'il ne devrait pas, pour la personne " << i << "le jour" << j << " et " << j + 1 << "." << endl;
+                                b_solution_ok = false;
+                            }
                         }
                     }
                 }
@@ -106,18 +122,18 @@ bool Solution::Verification_Solution(Instance *instance)
             b_solution_ok = false;
         }
         //Vérification du nombre de WE (samedi ou/et dimanche) de travail maximal pour chaque personne
-        if(i_nb_WE>instance->get_Personne_Nbre_WE_Max(i))
+        if (i_nb_WE > instance->get_Personne_Nbre_WE_Max(i))
         {
-            cout<< "Erreur : Le nombre max de travail le WE de la personne "<< i<<" n'est pas respecté." <<endl;
-            b_solution_ok=false;
+            cout << "Erreur : Le nombre max de travail le WE de la personne " << i << " n'est pas respecté." << endl;
+            b_solution_ok = false;
         }
         //Vérification du nombre maximal de shifts de chaque personne
-        for(j=0;j<instance->get_Nombre_Shift();j++)
+        for (j = 0; j < instance->get_Nombre_Shift(); j++)
         {
-            if(v_i_Nb_shift[j]>instance->get_Personne_Shift_Nbre_Max(i, j))
+            if (v_i_Nb_shift[j] > instance->get_Personne_Shift_Nbre_Max(i, j))
             {
-                cout<< "Erreur : Le nombre max de shift "<< j <<" de la personne "<< i<<" n'est pas respecté." <<endl;
-                b_solution_ok=false;
+                cout << "Erreur : Le nombre max de shift " << j << " de la personne " << i << " n'est pas respecté." << endl;
+                b_solution_ok = false;
             }
         }
     }

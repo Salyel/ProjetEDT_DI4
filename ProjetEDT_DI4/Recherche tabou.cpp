@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <iostream>
+#include <chrono>
 
 /* Constructeur de la classe RechercheTabou, les arguments taille_liste_tabue, nb_iteration_max et aspiration permettent de modifier le fonctionnement de l'algorithme.
  * int taille_liste_taboue : la taille de notre liste taboue, correspondant au nombre de mouvements différents que nous stockons dans notre liste
@@ -20,17 +21,30 @@ RechercheTabou::RechercheTabou(Instance* instance, int taille_liste_taboue, Solu
 
 RechercheTabou::~RechercheTabou()
 {
-    liste_taboue.clear();
-    liste_taboue.shrink_to_fit();
+    liste_taboue_jours.clear();
+    liste_taboue_jours.shrink_to_fit();
+    liste_taboue_shifts.clear();
+    liste_taboue_shifts.shrink_to_fit();
 }
 
 //La fonction qui lance la rechercheTabou sur l'instance à partir de la solution_initiale
-Solution* RechercheTabou::rechercheTabou()
+Solution* RechercheTabou::rechercheTabou(chrono::time_point<chrono::system_clock> start)
 {
+    chrono::time_point<chrono::system_clock> chrono_start, chrono_end;
+    chrono_start = start;
+    chrono_end = chrono::system_clock::now();
+    chrono::duration<double> elapsed;
+    elapsed = chrono_end - chrono_start;
+
     Solution solution_courante = *solution_initiale;
     Solution solution_meilleure = *solution_initiale;
     Solution solution_voisine = *solution_initiale;
     Solution solution_meilleure_voisine = *solution_initiale;
+
+    liste_taboue_jours.clear();
+    liste_taboue_jours.shrink_to_fit();
+    liste_taboue_shifts.clear();
+    liste_taboue_shifts.shrink_to_fit();
 
     int i = 0;
     int tampon = 0;
@@ -39,7 +53,7 @@ Solution* RechercheTabou::rechercheTabou()
     int index_jour2;
 
     vector<int> mouvement_utilise;
-    while (i < nb_iteration_max)
+    while (i < nb_iteration_max && elapsed.count() < 180)
     {
         solution_meilleure_voisine = Solution();
         solution_meilleure_voisine.i_valeur_fonction_objectif = 999999999;
@@ -47,52 +61,8 @@ Solution* RechercheTabou::rechercheTabou()
         vector<int> v_i_Nb_shift = calculNbShift(solution_courante);
         int duree_travail = calculDureeTravail(solution_courante);
 
-        //Notre opérateur de voisinage est le suivant : pour tous les employés, on tente toutes les possibilités de swap entre deux jours
-        /*for (index_employe = 0; index_employe < solution_courante.v_v_IdShift_Par_Personne_et_Jour.size(); index_employe++)
-        {
-            for (index_jour1 = 0; index_jour1 < solution_courante.v_v_IdShift_Par_Personne_et_Jour[index_employe].size(); index_jour1++)
-            {
-                for (index_jour2 = 0; index_jour2 < solution_courante.v_v_IdShift_Par_Personne_et_Jour[index_employe].size(); index_jour2++)
-                {
-                    vector<int> mouvement_actuel = { index_employe, index_jour1, index_jour2 };
-                    if ((index_jour1 != index_jour2 && !presenceMouvementEtInverse(mouvement_actuel) && solution_courante.v_v_IdShift_Par_Personne_et_Jour[index_employe][index_jour1] != solution_courante.v_v_IdShift_Par_Personne_et_Jour[index_employe][index_jour2]) || aspiration)
-                    {
-                        solution_voisine = solution_courante;
-                        solution_voisine.v_v_IdShift_Par_Personne_et_Jour[index_employe][index_jour2] = solution_courante.v_v_IdShift_Par_Personne_et_Jour[index_employe][index_jour1];
-                        solution_voisine.v_v_IdShift_Par_Personne_et_Jour[index_employe][index_jour1] = solution_courante.v_v_IdShift_Par_Personne_et_Jour[index_employe][index_jour2];
-                        if (!presenceMouvementEtInverse(mouvement_actuel))                                                               //Si le mouvement n'est pas dans notre liste taboue
-                        {
-                            solution_voisine.i_valeur_fonction_objectif = nouvelleValeurVoisinJours(solution_courante, index_employe, index_jour1, index_jour2, v_i_nb_personne_par_Shift_et_jour);
-                            //solution_voisine.i_valeur_fonction_objectif = valeurVoisin(solution_voisine);
-                            if (solution_voisine.i_valeur_fonction_objectif < solution_meilleure_voisine.i_valeur_fonction_objectif)         //On teste si la valeur du voisin est meilleure que notre meilleur
-                            {                                                                                                   //voisin, pour ne pas perdre de temps à regarder si une moins bonne 
-                                if (validiteVoisinJours(solution_voisine, index_employe))   
-                                //if (validiteVoisin(solution_voisine, index_employe))                                            
-                                //if (solution_voisine.Verification_Solution(instance))
-                                {
-                                    solution_meilleure_voisine = solution_voisine;
-                                    mouvement_utilise = mouvement_actuel;
-                                }
-                            }
-                        }
-                        else if (aspiration)                                                                                    //Sinon si le critère d'aspiration est activé
-                        {
-                            solution_voisine.i_valeur_fonction_objectif = nouvelleValeurVoisinJours(solution_courante, index_employe, index_jour1, index_jour2, v_i_nb_personne_par_Shift_et_jour);
-                            if (solution_voisine.i_valeur_fonction_objectif < solution_meilleure.i_valeur_fonction_objectif)                 //On vérifie si notre mouvement déjà utilisé améliore la meilleure solution
-                            {
-                                if (validiteVoisin(solution_voisine, index_employe))
-                                //if (solution_voisine.Verification_Solution(instance))
-                                {
-                                    solution_meilleure_voisine = solution_voisine;
-                                    mouvement_utilise = mouvement_actuel;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }*/
-        // Deuxième opérateur de voisinage : pour tous les employés, tous les jours, on essaie de changer le shift en un qui améliore la fonction objectif
+        // Premier opérateur de voisinage : pour tous les employés, tous les jours, on essaie de changer le shift en un qui améliore la fonction objectif.
+        // On effectue d'abord cet opérateur puisqu'il est beaucoup plus rapide que notre second.
         for (index_employe = 0; index_employe < solution_courante.v_v_IdShift_Par_Personne_et_Jour.size(); index_employe++)
         {
             for (int index_jour = 0; index_jour < solution_courante.v_v_IdShift_Par_Personne_et_Jour[index_employe].size(); index_jour++)
@@ -100,7 +70,7 @@ Solution* RechercheTabou::rechercheTabou()
                 for (int index_shift = 0; index_shift < instance->get_Nombre_Shift(); index_shift++)
                 {
                     vector<int> mouvement_actuel = { index_employe, index_jour, index_shift };
-                    if ((index_shift != solution_courante.v_v_IdShift_Par_Personne_et_Jour[index_employe][index_jour] && !presenceMouvement(mouvement_actuel) && solution_courante.v_v_IdShift_Par_Personne_et_Jour[index_employe][index_jour] != -1) || aspiration)
+                    if (index_shift != solution_courante.v_v_IdShift_Par_Personne_et_Jour[index_employe][index_jour] && solution_courante.v_v_IdShift_Par_Personne_et_Jour[index_employe][index_jour] != -1 && (!presenceMouvement(mouvement_actuel) || aspiration))
                     {
                         solution_voisine = solution_courante;
                         solution_voisine.v_v_IdShift_Par_Personne_et_Jour[index_employe][index_jour] = index_shift;
@@ -109,8 +79,8 @@ Solution* RechercheTabou::rechercheTabou()
                             solution_voisine.i_valeur_fonction_objectif = nouvelleValeurVoisinShifts(solution_courante, index_employe, index_jour, index_shift, solution_courante.v_v_IdShift_Par_Personne_et_Jour[index_employe][index_jour], v_i_nb_personne_par_Shift_et_jour);
                             //solution_voisine.i_valeur_fonction_objectif = valeurVoisin(solution_voisine);
                             if (solution_voisine.i_valeur_fonction_objectif < solution_meilleure_voisine.i_valeur_fonction_objectif)         //On teste si la valeur du voisin est meilleure que notre meilleur
-                            {                                                                                                   //voisin, pour ne pas perdre de temps à regarder si une moins bonne
-                                if (validiteVoisin(solution_voisine, index_employe))                                            //solution est valide ou non
+                            {                                                                                                                //voisin, pour ne pas perdre de temps à regarder si une moins bonne
+                                if (validiteVoisin(solution_voisine, index_employe))                                                         //solution est valide ou non
                                 //if (validiteVoisinShift(solution_courante, index_employe, index_jour, solution_courante.v_v_IdShift_Par_Personne_et_Jour[index_employe][index_jour], index_shift, duree_travail, v_i_Nb_shift))
                                 //if (solution_voisine.Verification_Solution(instance))
                                 {
@@ -138,39 +108,117 @@ Solution* RechercheTabou::rechercheTabou()
             }
         }
 
-        solution_courante = solution_meilleure_voisine;
-        ajouterElement(mouvement_utilise);
-        if (solution_courante.i_valeur_fonction_objectif < solution_meilleure.i_valeur_fonction_objectif)
+        //Si le meilleur voisin suite à notre premier opérateur améliore la meilleure solution, on ne va pas utiliser le deuxième opérateur.
+        if (solution_meilleure_voisine.i_valeur_fonction_objectif < solution_meilleure.i_valeur_fonction_objectif)
         {
-            solution_meilleure = solution_courante;
+            solution_meilleure = solution_meilleure_voisine;
             i = 0;
+            ajouterElementShifts(mouvement_utilise);
+            solution_courante = solution_meilleure_voisine;
         }
+        else
+        {
+            //Notre deuxième opérateur de voisinage est le suivant : pour tous les employés, on tente toutes les possibilités de swap entre deux jours.
+            //Comme dit en commentaire au dessus du premier opérateur, celui ci prend plus de temps mais trouve plus facilement une solution.
+            for (index_employe = 0; index_employe < solution_courante.v_v_IdShift_Par_Personne_et_Jour.size(); index_employe++)
+            {
+                for (index_jour1 = 0; index_jour1 < solution_courante.v_v_IdShift_Par_Personne_et_Jour[index_employe].size(); index_jour1++)
+                {
+                    for (index_jour2 = 0; index_jour2 < solution_courante.v_v_IdShift_Par_Personne_et_Jour[index_employe].size(); index_jour2++)
+                    {
+                        vector<int> mouvement_actuel = { index_employe, index_jour1, index_jour2 };
+                        if (index_jour1 != index_jour2 && solution_courante.v_v_IdShift_Par_Personne_et_Jour[index_employe][index_jour1] != solution_courante.v_v_IdShift_Par_Personne_et_Jour[index_employe][index_jour2] && (!presenceMouvementEtInverse(mouvement_actuel) || aspiration))
+                        {
+                            solution_voisine = solution_courante;
+                            solution_voisine.v_v_IdShift_Par_Personne_et_Jour[index_employe][index_jour2] = solution_courante.v_v_IdShift_Par_Personne_et_Jour[index_employe][index_jour1];
+                            solution_voisine.v_v_IdShift_Par_Personne_et_Jour[index_employe][index_jour1] = solution_courante.v_v_IdShift_Par_Personne_et_Jour[index_employe][index_jour2];
+                            if (!presenceMouvementEtInverse(mouvement_actuel))                                                               //Si le mouvement n'est pas dans notre liste taboue
+                            {
+                                solution_voisine.i_valeur_fonction_objectif = nouvelleValeurVoisinJours(solution_courante, index_employe, index_jour1, index_jour2, v_i_nb_personne_par_Shift_et_jour);
+                                //solution_voisine.i_valeur_fonction_objectif = valeurVoisin(solution_voisine);
+                                if (solution_voisine.i_valeur_fonction_objectif < solution_meilleure_voisine.i_valeur_fonction_objectif)         //On teste si la valeur du voisin est meilleure que notre meilleur
+                                {                                                                                                               //voisin, pour ne pas perdre de temps à regarder si une moins bonne 
+                                                                                                                                                // solution est correcte.
+                                    if (validiteVoisinJours(solution_voisine, index_employe))
+                                    //if (validiteVoisin(solution_voisine, index_employe))                                            
+                                    //if (solution_voisine.Verification_Solution(instance))
+                                    {
+                                        solution_meilleure_voisine = solution_voisine;
+                                        mouvement_utilise = mouvement_actuel;
+                                    }
+                                }
+                            }
+                            else if (aspiration)                                                                                    //Sinon si le critère d'aspiration est activé
+                            {
+                                solution_voisine.i_valeur_fonction_objectif = nouvelleValeurVoisinJours(solution_courante, index_employe, index_jour1, index_jour2, v_i_nb_personne_par_Shift_et_jour);
+                                if (solution_voisine.i_valeur_fonction_objectif < solution_meilleure.i_valeur_fonction_objectif)                 //On vérifie si notre mouvement déjà utilisé améliore la meilleure solution
+                                {
+                                    //if (validiteVoisin(solution_voisine, index_employe))
+                                    if (validiteVoisinJours(solution_voisine, index_employe))
+                                    //if (solution_voisine.Verification_Solution(instance))
+                                    {
+                                        solution_meilleure_voisine = solution_voisine;
+                                        mouvement_utilise = mouvement_actuel;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            solution_courante = solution_meilleure_voisine;
+            ajouterElementJours(mouvement_utilise);
+            if (solution_courante.i_valeur_fonction_objectif < solution_meilleure.i_valeur_fonction_objectif)
+            {
+                solution_meilleure = solution_courante;
+                i = 0;
+                liste_taboue_shifts.clear();
+                liste_taboue_shifts.shrink_to_fit();
+            }
+        }
+
         i++;
         cout << "Meilleure valeur de solution voisine a cette iteration : " << solution_meilleure_voisine.i_valeur_fonction_objectif;
         cout << "\n" << i;
+        chrono_end = chrono::system_clock::now();
+        elapsed = chrono_end - chrono_start;
 	}
+    delete solution_initiale;
     cout << "Voici la meilleure solution : \n";
     printVoisin(solution_meilleure);
 	return new Solution(solution_meilleure);
 }
 
-//Permet d'ajouter un élément dans la liste taboue, fonctionne comme une FIFO
-void RechercheTabou::ajouterElement(vector<int> tabou)
+
+
+//Permet d'ajouter un élément dans la liste taboue des jours, fonctionne comme une FIFO
+void RechercheTabou::ajouterElementJours(vector<int> tabou)
 {
-	if (liste_taboue.size() == taille_liste_taboue)
+	if (liste_taboue_jours.size() == taille_liste_taboue)
 	{
-		liste_taboue.pop_back();
+		liste_taboue_jours.pop_back();
 	}
-	liste_taboue.insert(liste_taboue.begin(), tabou);
+	liste_taboue_jours.insert(liste_taboue_jours.begin(), tabou);
 }
 
-//renvoie true si le mouvement ou le mouvement inverse est présent dans la liste taboue
+//Permet d'ajouter un élément dans la liste taboue des shifts, fonctionne comme une FIFO
+void RechercheTabou::ajouterElementShifts(vector<int> tabou)
+{
+    if (liste_taboue_shifts.size() == taille_liste_taboue)
+    {
+        liste_taboue_shifts.pop_back();
+    }
+    liste_taboue_shifts.insert(liste_taboue_shifts.begin(), tabou);
+}
+
+//renvoie true si le mouvement ou le mouvement inverse est présent dans la liste taboue jours
 bool RechercheTabou::presenceMouvementEtInverse(vector<int> mouvement)
 {
     bool present = false;
     vector<int> mouvement_inverse = { mouvement[0], mouvement[2], mouvement[1] };
 
-    if (find(liste_taboue.begin(), liste_taboue.end(), mouvement) != liste_taboue.end() || find(liste_taboue.begin(), liste_taboue.end(), mouvement_inverse) != liste_taboue.end()) // pas sûr de cette ligne
+    if (find(liste_taboue_jours.begin(), liste_taboue_jours.end(), mouvement) != liste_taboue_jours.end() || find(liste_taboue_jours.begin(), liste_taboue_jours.end(), mouvement_inverse) != liste_taboue_jours.end()) 
     {
         present = true;
     }
@@ -178,12 +226,12 @@ bool RechercheTabou::presenceMouvementEtInverse(vector<int> mouvement)
     return present;
 }
 
-//renvoie true sur le mouvement est présent dans la liste taboue
+//renvoie true sur le mouvement est présent dans la liste taboue shift
 bool RechercheTabou::presenceMouvement(vector<int> mouvement)
 {
     bool present = false;
 
-    if (find(liste_taboue.begin(), liste_taboue.end(), mouvement) != liste_taboue.end()) // pas sûr de cette ligne
+    if (find(liste_taboue_shifts.begin(), liste_taboue_shifts.end(), mouvement) != liste_taboue_shifts.end()) 
     {
         present = true;
     }
@@ -191,6 +239,7 @@ bool RechercheTabou::presenceMouvement(vector<int> mouvement)
     return present;
 }
 
+//Renvoie la valeur de la fonction objectif de la solution passée en argument
 int RechercheTabou::valeurVoisin(Solution voisin)
 {
     //Vérification de la fonction objectif
@@ -239,6 +288,7 @@ int RechercheTabou::valeurVoisin(Solution voisin)
     return i_fc_obj;
 }
 
+//Renvoie la valeur de la solution objectif de la solution passée en argument, version qui réduit la complexité pour l'opérateur de swap des jours
 int RechercheTabou::nouvelleValeurVoisinJours(Solution voisin, int index_employe, int index_jour1, int index_jour2, vector<vector<int>> v_i_nb_personne_par_Shift_et_jour)
 {
     int shift_j1 = voisin.v_v_IdShift_Par_Personne_et_Jour[index_employe][index_jour1];
@@ -262,8 +312,6 @@ int RechercheTabou::nouvelleValeurVoisinJours(Solution voisin, int index_employe
 
         i_fc_obj = i_fc_obj - instance->get_Poids_Refus_Pers_Jour_Shift(index_employe, index_jour1, shift_j1);
         i_fc_obj = i_fc_obj + instance->get_Poids_Refus_Pers_Jour_Shift(index_employe, index_jour2, shift_j1);
-
-     //   i_fc_obj = i_fc_obj - instance->get_Poids_Affectation_Pers_Jour_Shift(index_employe, index_jour1, shift_j1);
     }
    
     if (shift_j2 != -1)
@@ -283,8 +331,6 @@ int RechercheTabou::nouvelleValeurVoisinJours(Solution voisin, int index_employe
 
         i_fc_obj = i_fc_obj - instance->get_Poids_Refus_Pers_Jour_Shift(index_employe, index_jour2, shift_j2);
         i_fc_obj = i_fc_obj + instance->get_Poids_Refus_Pers_Jour_Shift(index_employe, index_jour1, shift_j2);
-
-      //  i_fc_obj = i_fc_obj - instance->get_Poids_Affectation_Pers_Jour_Shift(index_employe, index_jour2, shift_j2);
     }
 
     //Vérification de si les employés ont bien leurs shifts préférés ou non
@@ -305,6 +351,7 @@ int RechercheTabou::nouvelleValeurVoisinJours(Solution voisin, int index_employe
     return i_fc_obj;
 }
 
+//Renvoie la valeur de la solution objectif de la solution passée en argument, version qui réduit la complexité pour l'opérateur de swap des shifts
 int RechercheTabou::nouvelleValeurVoisinShifts(Solution voisin, int index_employe, int index_jour, int index_shift, int index_ancien_shift, vector<vector<int>> v_i_nb_personne_par_Shift_et_jour)
 {
     int ancien_shift_j = voisin.v_v_IdShift_Par_Personne_et_Jour[index_employe][index_jour];
@@ -343,6 +390,7 @@ int RechercheTabou::nouvelleValeurVoisinShifts(Solution voisin, int index_employ
     return i_fc_obj;
 }
 
+//Cette fonction renvoie un vector contenant le nombre de personne par shift et par jour de la solution passée de argument.
 vector<vector<int>> RechercheTabou::calculNbPersonneShiftJour(Solution voisin)
 {
     vector<vector<int>> v_i_nb_personne_par_Shift_et_jour(instance->get_Nombre_Shift(), vector<int>(instance->get_Nombre_Jour(), 0));
@@ -362,13 +410,13 @@ vector<vector<int>> RechercheTabou::calculNbPersonneShiftJour(Solution voisin)
     return v_i_nb_personne_par_Shift_et_jour;
 }
 
-//On calcule la valeur avant de vérifier si c'est valide, si sa valeur n'est pas inférieure à la meilleure valeur des voisins actuels : pas besoin de vérifier si c'est valide.
 //Renvoie false si toutes les contraintes de la nouvelle solution ne sont pas respectées, true sinon
 bool RechercheTabou::validiteVoisin(Solution voisin, int numero_employe)
 {
     int j = 0;
 	bool validite = true;
     int i_shift_consecutif = 0;
+    int i_conge_consecutif = 0;
     int i_duree_travail = 0;
     int i_nb_WE = 0;
     vector<int> v_i_Nb_shift(instance->get_Nombre_Shift(), 0);
@@ -384,6 +432,7 @@ bool RechercheTabou::validiteVoisin(Solution voisin, int numero_employe)
                 i_nb_WE++;
             if (((j % 7) == 6) && (voisin.v_v_IdShift_Par_Personne_et_Jour[numero_employe][j - 1] == -1))
                 i_nb_WE++;
+
             //Vérification du nombre de shifts consécutifs maximum assignable à notre employe
             if (i_shift_consecutif > instance->get_Personne_Nbre_Shift_Consecutif_Max(numero_employe))
             {
@@ -395,9 +444,21 @@ bool RechercheTabou::validiteVoisin(Solution voisin, int numero_employe)
             {
                 validite = false;
             }
+
+            //Vérification du nombre de congés consécutifs minimums assignables à notre employe
+            if (i_conge_consecutif != 0)
+            {
+                if (i_conge_consecutif < instance->get_Personne_Jour_OFF_Consecutif_Min(numero_employe) && j > instance->get_Personne_Jour_OFF_Consecutif_Min(numero_employe))
+                {
+                    validite = false;
+                }
+                i_conge_consecutif = 0;
+            }
         }
         else
         {
+            i_conge_consecutif++;
+
             //Vérification du nombre de shifts consécutifs minimum assignable à notre employe
             if ((i_shift_consecutif < instance->get_Personne_Nbre_Shift_Consecutif_Min(numero_employe)) && (i_shift_consecutif != 0) && ((j - instance->get_Personne_Nbre_Shift_Consecutif_Min(numero_employe)) > 0))
             {
@@ -445,6 +506,7 @@ bool RechercheTabou::validiteVoisin(Solution voisin, int numero_employe)
 	return validite;
 }
 
+//Renvoie false si toutes les contraintes de la nouvelle solution ne sont pas respectées, true sinon, version améliorée en terme de complexité pour l'opérateur des Shifts 
 bool RechercheTabou::validiteVoisinShift(Solution voisin, int numero_employe, int index_jour, int ancien_shift, int nouveau_shift, int duree_travail, vector<int> v_i_Nb_shift)
 {
     bool validite = true;
@@ -493,11 +555,13 @@ bool RechercheTabou::validiteVoisinShift(Solution voisin, int numero_employe, in
     return validite;
 }
 
+//Renvoie false si toutes les contraintes de la nouvelle solution ne sont pas respectées, true sinon, version améliorée en terme de complexité pour l'opérateur des jours
 bool RechercheTabou::validiteVoisinJours(Solution voisin, int numero_employe)
 {
     int j = 0;
     bool validite = true;
     int i_shift_consecutif = 0;
+    int i_conge_consecutif = 0;
     int i_nb_WE = 0;
 
     while (j < voisin.v_v_IdShift_Par_Personne_et_Jour[numero_employe].size() && validite != false)
@@ -520,9 +584,20 @@ bool RechercheTabou::validiteVoisinJours(Solution voisin, int numero_employe)
             {
                 validite = false;
             }
+
+            //Vérification du nombre de congés consécutifs minimums assignables à chaque personne
+            if (i_conge_consecutif != 0)
+            {
+                if (i_conge_consecutif < instance->get_Personne_Jour_OFF_Consecutif_Min(numero_employe) && j > instance->get_Personne_Jour_OFF_Consecutif_Min(numero_employe))
+                {
+                    validite = false;
+                }
+                i_conge_consecutif = 0;
+            }
         }
         else
         {
+            i_conge_consecutif++;
             //Vérification du nombre de shifts consécutifs minimum assignable à notre employe
             if ((i_shift_consecutif < instance->get_Personne_Nbre_Shift_Consecutif_Min(numero_employe)) && (i_shift_consecutif != 0) && ((j - instance->get_Personne_Nbre_Shift_Consecutif_Min(numero_employe)) > 0))
             {
