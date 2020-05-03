@@ -31,6 +31,7 @@ Solution* Heuristique::resolution_Instance()
 		//cout << e << "\n";
 
 		// ETAPE 1 : on détermine quels jours sont travailles et quels jours sont des conges
+
 		vector<int> v_Horizon_Employe = Heuristique::jours_Travailles_Par_Personne(e);
 
 		// ETAPE 2 : pour chaque jour on determine quelle est la meilleure shift a attribuer
