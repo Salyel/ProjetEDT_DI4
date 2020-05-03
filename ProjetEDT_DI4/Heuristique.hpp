@@ -14,6 +14,7 @@ class Heuristique
 		//attributs
 
 		Instance* instance;
+		vector<int> nb_Shift_Par_Type;
 
 	public:
 
@@ -66,9 +67,22 @@ class Heuristique
 		vector<int> jours_Travailles_Par_Personne(int id_Employe);
 
 		/******************************************
+		***** NOM :  echange_Jour_Travail()
+		*******************************************
+		***** Pour un jour de travail d'un employe donne, cherche un jour de conge a echanger avec ce dernier
+		*******************************************
+		***** Entrée :  v_Horizon_Employe : le vecteur des shift par jour pour un employe
+						id_Employe : l'indice de l'employe correspondant
+						id_Jour : le jour de travail que l'on cherche a passer en jour de conge
+						meme_Shift : est-ce que la shift du nouveau jour de travail doit etre la meme que la shift du jour qui va etre passe en conge
+		***** Sortie :  bool : est-ce qu'on a reussi a faire l'echange ou non
+		*******************************************/
+		bool echange_Jour_Travail(vector<int>& v_Horizon_Employe, int id_Employe, int id_Jour, bool meme_Shift);
+
+		/******************************************
 		***** NOM :  nb_Shift_Affilee()
 		*******************************************
-		***** Parcours un vecteur de 0 et de -1 et compte le nombre de 0 d'affilee à partir d'une certaine position
+		***** Parcourt un vecteur de 0 et de -1 et compte le nombre de 0 d'affilee à partir d'une certaine position
 		*******************************************
 		***** Entrées : v : le vecteur à parcourir
 		*****			pos : la position de départ dans le vecteur
@@ -76,6 +90,19 @@ class Heuristique
 		***** Sortie : int : le nombre de 0 d'affilee à partir de la position donnée dans le vecteur donné
 		*******************************************/
 		int nb_Shift_Affilee(vector<int> v, int pos, bool dir);
+
+		/******************************************
+		***** NOM :  improved_Shift_Succede()
+		*******************************************
+		***** indique si un shift peut être place entre deux autres (prend en compte les conges)
+		*******************************************
+		***** Entrées : shift_Prev : la shift precedente
+		*****			shift : la shift qu'on veut ajouter
+		*****			shift_Suiv : la shift suivante
+		***** Sortie : bool : vrai si shift peut suivre shift_Prev ET shift_Suiv peut suivre shift, faux sinon
+		*******************************************/
+		bool improved_Shift_Succede(int shift_Prev, int shift, int shift_Suiv);
+
 };
 
 
