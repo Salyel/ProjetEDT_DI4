@@ -1,6 +1,6 @@
 #define CHEMIN_DOSSIER_DONNEES "D:/Programmes Visual/ProjetEDT_DI4/ProjetEDT_DI4/Format Etudiant Public/"
 //#define CHEMIN_DOSSIER_DONNEES "C:/Users/Florent/Documents/Cours/S8/Optimisation Discrete/ProjetEDT_DI4/Format Etudiant Public/"
-#define NOM_FICHIER_LISTE_FICHIER_DONNEES "data.txt"
+#define NOM_FICHIER_LISTE_FICHIER_DONNEES "ALLdata.txt"
 #define NOM_FICHIER_LISTE_SORTIE "sortie.txt"
 
 #include <iostream>
@@ -88,16 +88,43 @@ int Resolution(Instance * instance)
     Heuristique h = Heuristique(instance);
     Solution* uneSolution = h.resolution_Instance();
 
-  /*  uneSolution->Verification_Solution(instance);
-    i_val_Retour_Fct_obj = uneSolution->i_valeur_fonction_objectif;
-    delete uneSolution; */
+    int nb_iteration_max = 200;             //Le nombre d'itération sans amélioration avant d'arrêter la recherche tabou
+    bool aspiration = true;                 //Si aspiration est égal à true, on peut prendre une solution si elle améliore la meilleure solution de tous les temps même si son mouvement est dans la liste taboue
+    int taille_liste_taboue = 30;           //La taille de la liste taboue
+    int nb_random = 2000;                   //Le nombre d'itération de random à chaque génération de voisinage.
 
-    RechercheTabou tabou = RechercheTabou(instance, 30, uneSolution, 30, true);
-    Solution* meilleure_solution = tabou.rechercheTabou(chrono_start);
-    meilleure_solution->Verification_Solution(instance);
-    i_val_Retour_Fct_obj=meilleure_solution->i_valeur_fonction_objectif;
-    delete meilleure_solution;
-    delete uneSolution;
+    //L'instance 18 prend beaucoup trop de temps et nous ne trouvons jamais de solution, autant l'ignorer !
+    if (instance->get_Nombre_Shift() == 32)
+    {
+        uneSolution->Verification_Solution(instance);
+        i_val_Retour_Fct_obj = uneSolution->i_valeur_fonction_objectif;
+        delete uneSolution; 
+    }
+    else
+    {
+        //Si la solution fournie par l'heuristique est réalisable, on lance tout normalement
+        if (uneSolution->Verification_Solution(instance))
+        {
+            RechercheTabou tabou = RechercheTabou(instance, taille_liste_taboue, uneSolution, nb_iteration_max, aspiration);
+            Solution* meilleure_solution = tabou.rechercheTabou(chrono_start, nb_random, true);
+            meilleure_solution->Verification_Solution(instance);
+            i_val_Retour_Fct_obj = meilleure_solution->i_valeur_fonction_objectif;
+            delete meilleure_solution;
+            delete uneSolution;
+        }
+        //Si elle n'est pas réalisable, on lance un mode spéciale pour ça (ne fonctionne que si l'erreur peut être résolue par un unique mouvement, par manque de temps)
+        else
+        {
+            RechercheTabou tabou = RechercheTabou(instance, taille_liste_taboue, uneSolution, nb_iteration_max, aspiration);
+            Solution* meilleure_solution = tabou.rechercheTabou(chrono_start, nb_random, false);
+            meilleure_solution->Verification_Solution(instance);
+            i_val_Retour_Fct_obj = meilleure_solution->i_valeur_fonction_objectif;
+            delete meilleure_solution;
+            delete uneSolution;
+        }
+    }
+
+
 
     return i_val_Retour_Fct_obj;
 }

@@ -1,5 +1,1 @@
-<<<<<<< HEAD
-Inst9.txt
-=======
-Inst3.txt
->>>>>>> 8eb4778094d92edb5f6de4c811bb97cd1131c264
+Inst18.txt
