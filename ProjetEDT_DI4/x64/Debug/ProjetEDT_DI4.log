@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+﻿  main.cpp
+  ProjetEDT_DI4.vcxproj -> C:\Users\Florent\Documents\Cours\S8\Optimisation Discrete\ProjetEDT_DI4\x64\Debug\ProjetEDT_DI4.exe
+=======
 ﻿  Recherche tabou.cpp
 D:\Programmes Visual\ProjetEDT_DI4\ProjetEDT_DI4\ProjetEDT_DI4\Recherche tabou.cpp(35,15): warning C4244: 'argument' : conversion de 'time_t' en 'unsigned int', perte possible de données
   ProjetEDT_DI4.vcxproj -> D:\Programmes Visual\ProjetEDT_DI4\ProjetEDT_DI4\x64\Debug\ProjetEDT_DI4.exe
+>>>>>>> 8eb4778094d92edb5f6de4c811bb97cd1131c264
